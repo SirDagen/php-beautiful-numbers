@@ -40,7 +40,7 @@ function out_sinum($val, $unit='B', $md=array()) {
     // outs values with si: "3240g" -> "3.24 kg"
     $t='txt'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // dont use HTML in output (e.g. &ndash;)
     $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // use IEC binary (1024) instead of SI (1000)
-    $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=-1; // post decimal places (e.g. use 2 decimal places) 
+    $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=3; // accuracy (decimal places) - preset = 3
 	if ($bin===true) { $a=1024; $bin=1; }
 	else { $a=1000; $bin=0; }
 	$i=0;
@@ -48,10 +48,10 @@ function out_sinum($val, $unit='B', $md=array()) {
         while (abs($val)<1) { $val*=$a; $i--; }
         while (abs($val)>$a) { $val/=$a; $i++; }
 	}
-	if ($pdp==-1) $pdp=3-strlen(floor(abs($val)));
+	$acc-=strlen(floor(abs($val))); if ($acc<0) $acc=0; 
 	if ($txt) $t=' '; else $t='&#8239;'; // &thinsp;
-	$t.=$GLOBALS['var_siprefix'][$i][$bin];
-	$rt=out_val($val, $pdp, $md).$t.$unit;
+	$t.=$GLOBALS['var_siprefix'][$i][$bin]; 
+	$rt=out_val($val, $acc, $md).$t.$unit;
 	return $rt;
 }
 
