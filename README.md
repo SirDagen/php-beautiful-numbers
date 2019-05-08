@@ -16,8 +16,8 @@ echo $zformat->sinum($q, $u, ['acc'=>4])." (= {$q} {$u})<br/>"; // accuracy is s
 This outputs:
 
 ```html
-1.20 MiB  (= 1257004 B)
+438 KiB  (= 448156 B)
 
-8.444 km  (= 8443.6195392365 m)
+8.062 km  (= 8062.3298189893 m)
 ```
 
