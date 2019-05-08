@@ -6,18 +6,18 @@ I start with only one function "sinum".
 ```php
 $zformat = new PHPzformat\zformat(['.', ',']); // English number format
 
-$q=mt_rand(5, 1999999); $u='B'; 
-echo $zformat->sinum($q, $u, ['bin'=>true])." (= {$q} {$u})<br/>"; // set to binary instead of si prefices
+$val=mt_rand(5, 1999999); 
+echo $zformat->sinum($val, 'B', ['bin'=>true])." (= {$val})<br/>"; // set to binary instead of si prefices
  
-$q=mt_rand()/mt_getrandmax()*9000; $u='m'; 
-echo $zformat->sinum($q, $u, ['acc'=>4])." (= {$q} {$u})<br/>"; // accuracy is set to 4 decimal digits
+$val=mt_rand()/mt_getrandmax()*9000; 
+echo $zformat->sinum($val, 'm', ['acc'=>4])." (= {$val})<br/>"; // accuracy is set to 4 decimal digits
 ```
 
 This outputs:
 
 ```html
-438 KiB  (= 448156 B)
+438 KiB  (= 448156)
 
-8.062 km  (= 8062.3298189893 m)
+8.062 km  (= 8062.3298189893)
 ```
 
