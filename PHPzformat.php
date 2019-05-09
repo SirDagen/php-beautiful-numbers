@@ -82,7 +82,7 @@ class zformat {
     function __construct($presets=false) { // array() 
         if (is_array($presets)) foreach ($presets as $k0=>$v0) $this->presets[$k0] = $v0; // overwrite presets (if stated)
         // if numberformat is not explicitly set (presets['numberformat']), get numberformat from language (presets['lang']) 
-        if (!is_array($this->presets['numberformat'])) $this->presets['numberformat']=$this->numwords[$this->presets['lang']]['numberformat'];
+        if (!is_array($presets['numberformat'])) $this->presets['numberformat']=$this->numwords[$this->presets['lang']]['numberformat'];
     }
 
 
