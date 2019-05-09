@@ -80,7 +80,8 @@ class zformat {
     );
 
     function __construct($presets=false) { // array() 
-        if (is_array($presets)) foreach ($presets as $k0=>$v0) $this->presets[$k0] = $v0; // overwrite presets (if stated)
+        // overwrite presets (if stated)
+        if (is_array($presets)) foreach ($presets as $k0=>$v0) $this->presets[$k0] = $v0; 
         // if numberformat is not explicitly set (presets['numberformat']), get numberformat from language (presets['lang']) 
         if (!is_array($presets['numberformat'])) $this->presets['numberformat']=$this->numwords[$this->presets['lang']]['numberformat'];
     }
@@ -91,6 +92,7 @@ class zformat {
     }
 
 
+    // dont use this function, use outnum()
     function _out_val($val, $pdp=0, $md=[]) { // post decimal places (99 = all)
         // outputs numbers in local number format (with stated decimal places)
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
@@ -132,12 +134,12 @@ class zformat {
     }
 
     
-    function ucfirst($txt) {
+    function ucfirst($txt) { // upper case first letter
         if (empty($txt)) return $txt;
         return mb_strtoupper(mb_substr($tx, 0, 1)).mb_substr($tx, 1);
         }
             
-    function lcfirst($txt) {
+    function lcfirst($txt) { // lower case first letter
         if (empty($txt)) return $txt;
         return mb_strtolower(mb_substr($tx, 0, 1)).mb_substr($txt, 1); 
         }
@@ -145,8 +147,8 @@ class zformat {
         
     function outnum($val, $pdp=0, $md=[]) { // pdp = post decimal places (99 = all)
         // writes integer numbers 1..12 written-out. all others as digits
-        $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // language
-        $t='charmod'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply: ucfirst OR toupper
+        $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
+        $t='charmod'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
         if ($pdp!=0) return $this->_out_val($val, $pdp, $md);
         $val=round($val); 
         if (abs($val)>12) return $this->_out_val($val, $pdp, $lang);
