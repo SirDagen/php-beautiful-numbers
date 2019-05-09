@@ -36,8 +36,7 @@ class zformat {
 
     $zformat->outnum(10); // outputs numbers for running text (1..12 will be written-out) -> ten
     $zformat->outnum(42.4956, 2); // 2 decimal places -> 42.50 (this is basically the number_format function)
-    $zformat->outnum(41342.4956, -2); // 2 decimal places -> 42.50
-
+    
     */
 
     var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // presets - They can be overwriten with the constructor
