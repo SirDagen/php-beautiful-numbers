@@ -15,8 +15,8 @@ namespace PHPzformat;
 
 /*
  * PHPzformat - PHP format functions class.
- * Version 1.0.4
- * @author    SirDagen
+ * Version      1.0.4
+ * @author      SirDagen
  */
 
 class zformat {
