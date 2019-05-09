@@ -8,9 +8,7 @@ Not only in the physics department it is good practice to use the SI format for 
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
 
 echo $zformat->sinum(mt_rand(5, 1999999), 'B', ['bin'=>true]); // set to binary instead of SI prefixes
- 
 echo $zformat->sinum(mt_rand()/mt_getrandmax()*9000, 'm', ['acc'=>2]); // accuracy = 2 digits 
- 
 echo $zformat->sinum(mt_rand()/mt_getrandmax()/1000000, 's'); 
 ```
 
