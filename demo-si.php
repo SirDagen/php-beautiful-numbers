@@ -19,7 +19,7 @@ function out_demo($zformat) {
     echo "<p>".$zformat->sinum($val, $u, ['bin'=>true])." &nbsp;(= {$val} {$u})</p>";
     
     $val=mt_rand()/mt_getrandmax()*9000; $u='m'; 
-    echo "<p>".$zformat->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // accuracy is set to 4 decimal digits
+    echo "<p>".$zformat->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // accuracy is set to 2 decimal digits
 }
 
 
