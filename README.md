@@ -7,14 +7,11 @@ Not only in the physics department it is good practice to use the SI format for 
 ```php
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
 
-$val=mt_rand(5, 1999999); 
-echo $zformat->sinum($val, 'B', ['bin'=>true]) . "<br/>"; // set to binary instead of SI prefixes
+echo $zformat->sinum(mt_rand(5, 1999999), 'B', ['bin'=>true]); // set to binary instead of SI prefixes
  
-$val=mt_rand()/mt_getrandmax()*9000; 
-echo $zformat->sinum($val, 'm', ['acc'=>2]) . "<br/>"; // accuracy = 2 digits 
+echo $zformat->sinum(mt_rand()/mt_getrandmax()*9000, 'm', ['acc'=>2]); // accuracy = 2 digits 
  
-$val=mt_rand()/mt_getrandmax()/1000; 
-echo $zformat->sinum($val, 's')." (= {$val})<br/>"; 
+echo $zformat->sinum(mt_rand()/mt_getrandmax()/1000000, 's'); 
 ```
 
 The output might look like this:
