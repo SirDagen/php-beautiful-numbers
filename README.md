@@ -12,7 +12,7 @@ echo $zformat->sinum($val, 'B', ['bin'=>true])." (= {$val})<br/>"; // set to bin
 $val=mt_rand()/mt_getrandmax()*9000; 
 echo $zformat->sinum($val, 'm', ['acc'=>3])." (= {$val})<br/>"; // std accuracy = 3 digits
  
-$val=mt_rand()/mt_getrandmax()/10000000; 
+$val=mt_rand()/mt_getrandmax()/1000; 
 echo $zformat->sinum($val, 's')." (= {$val})<br/>"; 
 ```
 
