@@ -18,24 +18,20 @@ The output might look like this:
 
 ```html
 695 KiB  (= 711372) [byte + binary conversion]
-
 3.7 km  (= 3657.3480260881) [meter + 2 digits]
-
 98.4 µs  (= 9.8437291615846E-5) [second]
 ```
 
 
 ## 2. outnum() ##
 
-In publications it is common practice to write numbers from 1 to 12 written-out; all other numbers are written as digits. This is what the outnum() function does.
+In running text it is common practice to note the numbers from 1 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
 ```php
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
 
-$val=mt_rand(2, 15); 
-echo "There are ".$zformat->outnum($val)." trees on the hill.<br/>";
-$val=mt_rand(2, 15); 
-echo "There are ".$zformat->outnum($val)." trees on the hill.<br/>";
+echo "There are ".$zformat->outnum(mt_rand(2, 15))." trees on the hill.";
+echo "There are ".$zformat->outnum(mt_rand(2, 15))." trees on the hill.";
     
 ```
 
