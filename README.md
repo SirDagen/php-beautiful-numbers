@@ -13,7 +13,7 @@ $val=mt_rand()/mt_getrandmax()*9000;
 echo $zformat->sinum($val, 'm', ['acc'=>4])." (= {$val})<br/>"; // accuracy is set to 4 decimal digits
 ```
 
-This outputs:
+The output might look like this:
 
 ```html
 438 KiB  (= 448156)
