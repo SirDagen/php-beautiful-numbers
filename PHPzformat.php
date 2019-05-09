@@ -3,11 +3,12 @@
  * PHPzformat - PHP format functions class.
  * Version -see below-
  *
- * @see       https://github.com/SirDagen/php-format-functions
+ * @see         https://github.com/SirDagen/php-format-functions
  *
- * @author    SirDagen
- * @note      This program is distributed WITHOUT ANY WARRANTY; without even
- * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
+ * @author      SirDagen
+ * @note        This program is licensed under the GNU General Public License v3.0
+ *              Copyright and license notices must be preserved. See details at:
+ *              https://github.com/SirDagen/php-format-functions/blob/master/LICENSE 
  */
 
 namespace PHPzformat;
