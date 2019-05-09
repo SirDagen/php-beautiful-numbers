@@ -30,7 +30,7 @@ The output might look like this:
 
 ## 2. outnum() ##
 
-In publications it is common practice to write numbers from 1..12 written-out. All others as digits. So I created a function that does exactly that.
+In publications it is common practice to write numbers from 1 to 12 written-out; all other numbers are written as digits. This is what the outnum() function does.
 
 ```php
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
