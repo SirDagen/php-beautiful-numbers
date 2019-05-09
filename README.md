@@ -2,7 +2,7 @@
 
 ## 1. sinum() ##
 
-Not only in the physics department it is good practice to use the SI format for writing down any number (large and small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot).  
+Not only in the physics department it is good practice to use the SI format for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot).  
 
 ```php
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
