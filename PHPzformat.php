@@ -39,14 +39,14 @@ class zformat {
         $this->numberformat = $numberformat;
     }
 
-    public function out_val($val, $pdp=0, $md=[]) { // number, post decimal places (-1 = all)
+    public function out_val($val, $pdp=0, $md=[]) { // number, post decimal places (-99 = all)
         // outputs values in local number format (with given decimal places)
         $t='txt'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // !dont use HTML entities (e.g. &ndash;)
         if ($val===false) {
             if ($txt) return '-';
             return '&ndash;';
         }
-        if ($pdp==-1) {
+        if ($pdp==-99) {
             $pdp=0; $q=$val;
             while ($q!=floor($q)) { $q*=10; $pdp++; }
         }
