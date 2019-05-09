@@ -1,5 +1,5 @@
 # php-format-functions
-When studying physics we learned how to correctly output large and small numbers that they are still readable and are only as precise as necessary (usually 3 digits are sufficient). Maybe you like this, too.
+When studying physics we learned how to correctly output large and small numbers that they are still readable and are only as precise as necessary (usually 3 digits are the sweet spot). Maybe you like this, too.
 
 I start with only one function "sinum".
 
