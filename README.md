@@ -1,6 +1,6 @@
 # php-format-functions
 
---1. sinum()
+## 1. sinum() ##
 
 When studying physics we learned how to correctly output large and small numbers that they are still readable and are only as precise as necessary (usually 3 digits are the sweet spot). Maybe you like this, too. 
 
@@ -28,7 +28,7 @@ The output might look like this:
 ```
 
 
---2. outnum()
+## 2. outnum() ##
 
 In publications it is common practice to write numbers from 1..12 written-out. All others as digits. So I created a function that does exactly that.
 
