@@ -19,10 +19,10 @@ echo $zformat->sinum($val, 's')." (= {$val})<br/>";
 The output might look like this:
 
 ```html
-695 KiB  (= 711372 Byte)
+695 KiB  (= 711372 [Byte])
 
-3.66 km  (= 3657.3480260881 meter)
+3.66 km  (= 3657.3480260881 [meter])
 
-98.4 µs  (= 9.8437291615846E-5 second)
+98.4 µs  (= 9.8437291615846E-5 [second])
 ```
 
