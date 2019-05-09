@@ -10,7 +10,7 @@ $val=mt_rand(5, 1999999);
 echo $zformat->sinum($val, 'B', ['bin'=>true])." (= {$val})<br/>"; // set to binary instead of si prefices
  
 $val=mt_rand()/mt_getrandmax()*9000; 
-echo $zformat->sinum($val, 'm')." (= {$val})<br/>"; 
+echo $zformat->sinum($val, 'm')." (= {$val})<br/>"; // std accuracy = 3 digits
  
 $val=mt_rand()/mt_getrandmax()*9000; 
 echo $zformat->sinum($val, 'm', ['acc'=>4])." (= {$val})<br/>"; // accuracy is set to 4 decimal digits
