@@ -29,10 +29,10 @@ echo "<p>".$zformat->sinum($val, $u, ['bin'=>true])." &nbsp;(= {$val} {$u})</p>"
 $val=mt_rand()/mt_getrandmax()*9000; $u='m'; 
 echo "<p>".$zformat->sinum($val, $u, ['acc'=>4])." &nbsp;(= {$val} {$u})</p>"; // accuracy is set to 4 decimal digits
 
- 
+
 
 // Create a new instance
-$zformat = new PHPzformat\zformat(['.', ',']); // English number format
+$zformat = new PHPzformat\zformat(['.', ','], ['txt'=>false, 'acc'=>3]); // English number format
 
 echo "<br/><p><b>The number format is set to English:</b><br/></p>"; 
 
