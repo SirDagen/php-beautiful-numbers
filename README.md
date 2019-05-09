@@ -10,10 +10,10 @@ $val=mt_rand(5, 1999999);
 echo $zformat->sinum($val, 'B', ['bin'=>true])." (= {$val})<br/>"; // set to binary instead of si prefices
  
 $val=mt_rand()/mt_getrandmax()*9000; 
-echo $zformat->sinum($val, 'm')." (= {$val})<br/>"; // std accuracy = 3 digits
+echo $zformat->sinum($val, 'm', ['acc'=>3])." (= {$val})<br/>"; // std accuracy = 3 digits
  
-$val=mt_rand()/mt_getrandmax()*9000; 
-echo $zformat->sinum($val, 'm', ['acc'=>4])." (= {$val})<br/>"; // accuracy is set to 4 decimal digits
+$val=mt_rand()/mt_getrandmax()/10000000; 
+echo $zformat->sinum($val, 's')." (= {$val})<br/>"; 
 ```
 
 The output might look like this:
@@ -23,6 +23,6 @@ The output might look like this:
 
 3.66 km  (= 3661.3480260881)
 
-8.062 km  (= 8062.3298189893)
+98.4 µs  (= 9.8437291615846E-5)
 ```
 
