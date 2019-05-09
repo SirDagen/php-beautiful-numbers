@@ -33,15 +33,19 @@ class zformat {
          4=>['T', 'Ti'],
          5=>['P', 'Pi'],  
         ); 
-    var $numberformat=[',', '.']; // dec_point, thousands_sep // here: German number format
 
-    function __construct($numberformat=false) { // array(dec_point, thousands_sep)
-        $this->numberformat = $numberformat;
+    var $numberformat=[',', '.']; // dec_point, thousands_sep // here: German number format
+    
+    var $presets=['txt'=>false, 'acc'=>3]; // presets. can be overwriten with the constructor
+
+    function __construct($numberformat=false, $presets=false) { // array(dec_point, thousands_sep), array()
+        if ($numberformat!==false) $this->numberformat = $numberformat;
+        if ($presets!==false) $this->presets = $presets;
     }
 
     public function out_val($val, $pdp=0, $md=[]) { // number, post decimal places (-99 = all)
         // outputs values in local number format (with given decimal places)
-        $t='txt'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // !dont use HTML entities (e.g. &ndash;)
+        $t='txt'; if (isset($md[$t])) $$t=true; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         if ($val===false) {
             if ($txt) return '-';
             return '&ndash;';
@@ -55,9 +59,9 @@ class zformat {
  
     public function sinum($val, $unit='B', $md=[]) { 
         // outs values with si: "3240g" -> "3.24 kg"
-        $t='txt'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // !dont use HTML entities in output (e.g. &ndash;)
+        $t='txt'; if (isset($md[$t])) $$t=true; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // use IEC binary (1024) instead of SI (1000)
-        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=3; // accuracy (decimal places) - preset = 3
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal places) - preset = 3
         if ($bin===true) { $a=1024; $stype=1; } else { $a=1000; $stype=0; }
         $pow=0;
         if (!empty($val)) {
