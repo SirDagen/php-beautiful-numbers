@@ -48,11 +48,14 @@ class zformat {
         $t='txt'; if (isset($md[$t])) $$t=true; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         if ($val===false) {
             if ($txt) return '-';
-            return '&ndash;';
+            return '&ndash;'; 
         }
         if ($pdp==-99) {
             $pdp=0; $q=$val;
             while ($q!=floor($q)) { $q*=10; $pdp++; }
+        }
+        if ($pdp<0) { // force rounding if there are more digits before the point than given accuracy
+            $a=pow(10, -$pdp); $val=round($val/$a)*$a; 
         }
         return number_format($val, $pdp, $this->numberformat[0], $this->numberformat[1]); 
     }
@@ -61,18 +64,18 @@ class zformat {
         // outs values with si: "3240g" -> "3.24 kg"
         $t='txt'; if (isset($md[$t])) $$t=true; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=true; else $$t=false; // use IEC binary (1024) instead of SI (1000)
-        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal places) - preset = 3
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal digits) - preset = 3
         if ($bin===true) { $a=1024; $stype=1; } else { $a=1000; $stype=0; }
         $pow=0;
         if (!empty($val)) {
             while (abs($val)<1) { $val*=$a; $pow--; }
             while (abs($val)>$a) { $val/=$a; $pow++; }
         }
-        $acc-=strlen(floor(abs($val))); if ($acc<0) $acc=0; // only positive values supported right now
+        $acc-=strlen(floor(abs($val))); //if ($acc<0) $acc=0; // only positive values supported right now
         if ($txt) $prefix=' '; else $prefix='&#8239;'; // &thinsp;
         $prefix.=$this->siprefix[$pow][$stype]; 
         $rt=$this->out_val($val, $acc, $md).$prefix.$unit;
-        return $rt; 
+        return $rt;
     }
 
 }
