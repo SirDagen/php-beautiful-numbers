@@ -13,7 +13,7 @@
  namespace PHPzformat;
 /*
  * PHPzformat - PHP format functions class.
- * Version 1.0.2
+ * Version 1.0.3
  * @author    SirDagen
  */
 
