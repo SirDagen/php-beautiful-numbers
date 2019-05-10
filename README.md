@@ -2,7 +2,7 @@
 
 ## 0. zformat() ##
 
-PHPzformat work with multiple languages. When you call the constructor you can state the language you wanna use as well as other options like the accuracy (for example).  
+PHPzformat works with multiple languages. When you call the constructor you can state the language you are going to use (as well as other options like the accuracy for example).  
 
 ```php
 $zformat = new PHPzformat\zformat([ 'lang'=>'en', 'acc'=>3 ]);
