@@ -19,7 +19,7 @@ echo $zformat->sinum(3657.3480260881, 'm', ['acc'=>2]); // accuracy = 2 digits
 echo $zformat->sinum(9.8437291615846E-5, 's'); 
 ```
 
-The output looks like this:
+The output looks like this (English, Deutsch):
 
 ```html
 695 KiB   = 711372 [byte, use binary conversion]
@@ -43,7 +43,7 @@ echo "There are ".$zformat->outnum(14)." trees on the hill.";
     
 ```
 
-The output might look like this:
+The output looks like this (English, Deutsch):
 
 ```html
 There are nine trees on the hill.
