@@ -29,7 +29,6 @@ In running text it is common practice to note the numbers from 1 to 12 written-o
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
 
 echo "There are ".$zformat->outnum(mt_rand(2, 15))." trees on the hill.";
-echo "There are ".$zformat->outnum(mt_rand(2, 15))." trees on the hill.";
     
 ```
 
@@ -38,5 +37,6 @@ The output might look like this:
 ```html
 There are nine trees on the hill.
 There are 14 trees on the hill.
+There are eleven trees on the hill.
 ```
  
