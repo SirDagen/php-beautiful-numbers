@@ -2,7 +2,7 @@
 
 ## 0. new PHPzformat\zformat() ##
 
-All zformat-functions can be configured for different languages. You just state the language you want to use in the constructor. At the same time you can set the accuracy and the number format (all values are optional and overwrite the preset).  
+All zformat-functions can be configured for different languages. You just state the language you want to use in the constructor. At the same time you can set the accuracy and the number format (all values are optional).  
 
 ```php
 $zformat = new PHPzformat\zformat([ 'lang'=>'en', 'acc'=>3 ]);
