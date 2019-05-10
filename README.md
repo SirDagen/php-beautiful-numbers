@@ -15,9 +15,15 @@ echo $zformat->sinum(9.8437291615846E-5, 's');
 The output looks like this:
 
 ```html
+---English---
 695 KiB   = 711372 [byte + binary conversion]
 3.7 km   = 3657.3480260881 [meter + 2 digits]
 98.4 µs   = 9.8437291615846E-5 [second]
+
+---Deutsch---
+695 KiB   = 711372 [Byte + Binärsystem]
+3,7 km   = 3657.3480260881 [Meter + 2 Stellen]
+98,4 µs   = 9.8437291615846E-5 [Sekunde]
 ```
 
 
