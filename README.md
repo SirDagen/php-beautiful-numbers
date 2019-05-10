@@ -1,12 +1,19 @@
 # php-format-functions
 
+## 0. new PHPzformat\zformat() ##
+
+All zformat-functions can be configured for different languages. You just state the language you want to use in the constructor. At the same time you can set the accuracy and the number format (all values are optional and overwrite the preset).  
+
+```php
+$zformat = new PHPzformat\zformat([ 'lang'=>'en', 'acc'=>3 ]);
+```
+
+
 ## 1. sinum() ##
 
 Not only in the physics department it is good practice to use the SI format for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot).  
 
 ```php
-$zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
-
 echo $zformat->sinum(711372, 'B', ['bin'=>true]); // set to binary instead of SI prefixes
 echo $zformat->sinum(3657.3480260881, 'm', ['acc'=>2]); // accuracy = 2 digits 
 echo $zformat->sinum(9.8437291615846E-5, 's'); 
@@ -31,8 +38,6 @@ The output looks like this:
 In running text it is common practice to note the numbers from 1 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
 ```php
-$zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
-
 echo "There are ".$zformat->outnum(9)." trees on the hill.";
 echo "There are ".$zformat->outnum(14)." trees on the hill.";
     
