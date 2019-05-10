@@ -15,9 +15,9 @@ echo $zformat->sinum(9.8437291615846E-5, 's');
 The output looks like this:
 
 ```html
-695 KiB   = 711372 [byte + binary conversion]
-3.7 km   = 3657.3480260881 [meter + 2 digits]
-98.4 µs   = 9.8437291615846E-5 [second]
+695 KiB   [binary conversion]
+3.7 km   [2 digits accuracy]
+98.4 µs   [standard conversion]
 ```
 
 
@@ -28,7 +28,8 @@ In running text it is common practice to note the numbers from 1 to 12 written-o
 ```php
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
 
-echo "There are ".$zformat->outnum(mt_rand(2, 15))." trees on the hill.";
+echo "There are ".$zformat->outnum(9)." trees on the hill.";
+echo "There are ".$zformat->outnum(14)." trees on the hill.";
     
 ```
 
