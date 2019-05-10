@@ -7,12 +7,12 @@ Not only in the physics department it is good practice to use the SI format for 
 ```php
 $zformat = new PHPzformat\zformat( ['lang'=>'en'] ); // English number format
 
-echo $zformat->sinum(mt_rand(5, 1999999), 'B', ['bin'=>true]); // set to binary instead of SI prefixes
-echo $zformat->sinum(mt_rand()/mt_getrandmax()*9000, 'm', ['acc'=>2]); // accuracy = 2 digits 
-echo $zformat->sinum(mt_rand()/mt_getrandmax()/1000000, 's'); 
+echo $zformat->sinum(711372, 'B', ['bin'=>true]); // set to binary instead of SI prefixes
+echo $zformat->sinum(3657.3480260881, 'm', ['acc'=>2]); // accuracy = 2 digits 
+echo $zformat->sinum(9.8437291615846E-5, 's'); 
 ```
 
-The output might look like this:
+The output looks like this:
 
 ```html
 695 KiB   = 711372 [byte + binary conversion]
