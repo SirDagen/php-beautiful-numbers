@@ -20,6 +20,7 @@ The output looks like this:
 98.4 µs   = 9.8437291615846E-5 [second]
 ```
 ```html
+(Deutsch)
 695 KiB   = 711372 [Byte + Binärsystem]
 3,7 km   = 3657.3480260881 [Meter + 2 Stellen]
 98,4 µs   = 9.8437291615846E-5 [Sekunde]
