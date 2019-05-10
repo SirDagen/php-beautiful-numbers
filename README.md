@@ -37,6 +37,5 @@ The output might look like this:
 ```html
 There are nine trees on the hill.
 There are 14 trees on the hill.
-There are eleven trees on the hill.
 ```
  
