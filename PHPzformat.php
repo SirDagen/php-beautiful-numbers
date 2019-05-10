@@ -15,7 +15,7 @@ namespace PHPzformat;
 
 /*
  * PHPzformat - PHP format functions class.
- * Version      1.0.4
+ * Version      1.0.5
  * @author      SirDagen
  */
 
@@ -76,6 +76,11 @@ class zformat {
                 'ten', 'eleven', 'twelve', 'minusword'=>'minus', 'langname'=>'English', 
                 // std number format for this language, can be overwritten in preset['numberformat'] 
                 'numberformat'=> ['.', ','], // dec_point, thousands_sep 
+            ],
+        'fr'=> [ 'zéro', 'un/une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf',
+                'dix', 'onze', 'douze', 'minusword'=>'moins', 'langname'=>'français', 
+                // std number format for this language, can be overwritten in preset['numberformat'] 
+                'numberformat'=> [',', ' '], // dec_point, thousands_sep 
             ],
     );
 
