@@ -25,7 +25,7 @@ class zformat {
 
     --- INIT
 
-    $zformat = new PHPzformat\zformat(['lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]);
+    $zformat = new PHPzformat\zformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]);
 
 
     --- QUICK MANUAL
