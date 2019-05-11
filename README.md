@@ -5,7 +5,7 @@
 PHPzformat works with multiple languages. When you call the constructor you can state the language you are going to use (as well as other options like the accuracy for example).  
 
 ```php
-$zformat = new PHPzformat\zformat([ 'lang'=>'en', 'acc'=>3 ]);
+$zformat = new PHPzformat\zformat([ 'lang'=>'de', 'acc'=>3 ]);
 ```
 
 
@@ -19,17 +19,17 @@ echo $zformat->sinum(3657.3480260881, 'm', ['acc'=>2]); // accuracy = 2 digits
 echo $zformat->sinum(9.8437291615846E-5, 's'); 
 ```
 
-The output looks like this (English, Deutsch):
+The output looks like this (Deutsch, English):
 
-```html
-695 KiB   = 711372 [byte, use binary conversion]
-3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
-98.4 µs   = 9.8437291615846E-5 [second]
-```
 ```html
 695 KiB   = 711372 [Byte, Binärsystem]
 3,7 km   = 3657.3480260881 [Meter, Genauigkeit 2 Stellen]
 98,4 µs   = 9.8437291615846E-5 [Sekunde]
+```
+```html
+695 KiB   = 711372 [byte, use binary conversion]
+3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
+98.4 µs   = 9.8437291615846E-5 [second]
 ```
 
 
@@ -43,13 +43,13 @@ echo "There are ".$zformat->outnum(14)." trees on the hill.";
     
 ```
 
-The output looks like this (English, Deutsch):
+The output looks like this (Deutsch, English):
 
-```html
-There are nine trees on the hill.
-There are 14 trees on the hill.
-```
 ```html
 Es sind neun Bäume auf dem Hügel.
 Es sind 14 Bäume auf dem Hügel.
 ``` 
+```html
+There are nine trees on the hill.
+There are 14 trees on the hill.
+```
