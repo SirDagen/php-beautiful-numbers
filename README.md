@@ -22,12 +22,12 @@ echo $zformat->sinum(9.8437291615846E-5, 's');
 The output looks like this (Deutsch, English):
 
 ```html
-695 KiB   = 711372 [Byte, Binärsystem]
+695 KiB   = 711372 [Byte, Deutsch, Binärsystem]
 3,7 km   = 3657.3480260881 [Meter, Genauigkeit 2 Stellen]
 98,4 µs   = 9.8437291615846E-5 [Sekunde]
 ```
 ```html
-695 KiB   = 711372 [byte, use binary conversion]
+695 KiB   = 711372 [byte, English, use binary conversion]
 3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
 98.4 µs   = 9.8437291615846E-5 [second]
 ```
