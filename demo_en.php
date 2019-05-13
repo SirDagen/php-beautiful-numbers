@@ -35,14 +35,14 @@ $val=mt_rand()/mt_getrandmax()*9000; $u='m';
 echo "<p>".$zformat->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // accuracy is set to 2 decimal digits
 
 
-// outnum()
-echo "<br/><h3><pre>B. \"outnum\": Outputs numbers inside running text (1..12 will be written-out)</pre></h3>";
+// tnum()
+echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (1..12 will be written-out)</pre></h3>";
 
 // outputs 1..12 written-out, all others as digits (as common practice in publications)
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(2, 15); 
-    echo "There are ".$zformat->outnum($val)." trees on the hill.<br/>"; 
+    echo "There are ".$zformat->tnum($val)." trees on the hill.<br/>"; 
 }
 echo "</p>"; 
 
@@ -50,7 +50,7 @@ echo "</p>";
 echo "<p><i>But also decimals (if needed):</i></p>";
 
 $val=mt_rand()/mt_getrandmax()*2;
-echo "<p>The mean is ".$zformat->outnum($val, 1)." children.</p>"; 
+echo "<p>The mean is ".$zformat->tnum($val, 1)." children.</p>"; 
 
 
 
