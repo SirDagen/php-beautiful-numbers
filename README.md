@@ -59,6 +59,8 @@ When you display large numbers this function automatically rounds to the given a
 
 ```html
 Ich sehe 120.000 Bäume auf dem Hügel.   (= 122823) [Genauigkeit: 2 Stellen]
+``` 
+```html
 I see 120,000 trees on the hill.   (= 122823) [accuracy: 2 digits]
 ```
 
