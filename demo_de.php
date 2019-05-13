@@ -57,14 +57,14 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
-// tnumchoice() - zusätzliche Nutzung von 
+// tchoice() - zusätzliche Nutzung von 
 
-echo "<br/><h3><pre>C. \"tnumchoice\": Unterscheidet zwischen Singular und Plural</pre></h3>";
+echo "<br/><h3><pre>C. \"tchoice\": Unterscheidet zwischen Singular und Plural</pre></h3>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 3); 
-    echo $bn->tnumchoice($val, 'Stehen', 'Steht')." ".$bn->tnum($val, 'Bäume', 'ein Baum')." auf dem Marktplatz.<br/>"; 
+    echo $bn->tchoice($val, 'Stehen', 'Steht')." ".$bn->tnum($val, 'Bäume', 'ein Baum')." auf dem Marktplatz.<br/>"; 
 }
 echo "</p>"; 
 
