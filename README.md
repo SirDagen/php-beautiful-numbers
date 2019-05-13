@@ -1,4 +1,4 @@
-# php-format-functions
+# php-beautiful-numbers
 
 ## 0. zformat() ##
 
