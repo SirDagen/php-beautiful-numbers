@@ -15,21 +15,21 @@ Not only in the physics department it is good practice to use the [SI format](ht
 
 ```php
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // standard accuracy is 3 digits
-echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes (instead of SI) 
+echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 ```
 
 The output looks like this (Deutsch, English):
 
 ```html
 98,4 µs   = 9.8437291615846E-5 [Sekunde, deutsches Format]
-3,7 km   = 3657.3480260881 [Meter, Genauigkeit: 2 Stellen]
 695 KiB   = 711372 [Byte, Binärprefixe]
+3,7 km   = 3657.3480260881 [Meter, Genauigkeit: 2 Stellen]
 ```
 ```html
 98.4 µs   = 9.8437291615846E-5 [second, English format]
-3.7 km   = 3657.3480260881 [meter, accuracy: 2 digits]
 695 KiB   = 711372 [byte, binary prefixes]
+3.7 km   = 3657.3480260881 [meter, accuracy: 2 digits]
 ```
 
 
