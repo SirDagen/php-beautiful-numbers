@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.16
+ * Version      1.0.17
  * @author      Gordon Axmann
  */
 
@@ -67,12 +67,19 @@ class bnformat {
 
         
     
-    // numbers 0..12 are usually written-out in publications 
+    // numbers 0..12 are usually written-out in publications/running text 
+    // local number format: https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use
+    // if you need a different number format you can specify it in the __constructor via: [ 'lang'=>'en', 'numberformat'=> ['·', ' '] ]
     var $numwords=array(
         'de'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
                 'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
                 // std number format for this language, can be overwritten in preset['numberformat'] 
                 'numberformat'=> [',', '.'], // dec_point, thousands_sep 
+            ],
+        'de-CH'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
+            'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
+            // std number format for this language, can be overwritten in preset['numberformat'] 
+            'numberformat'=> ['.', "'"], // dec_point, thousands_sep
             ],
         'en'=> [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
                 'ten', 'eleven', 'twelve', 'minusword'=>'minus', 'langname'=>'English', 
@@ -84,6 +91,11 @@ class bnformat {
                 // std number format for this language, can be overwritten in preset['numberformat'] 
                 'numberformat'=> [',', ' '], // dec_point, thousands_sep 
             ],
+        'es'=> [ 'cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve',
+            'diez', 'once', 'doce', 'minusword'=>'menos', 'langname'=>'español', 
+            // std number format for this language, can be overwritten in preset['numberformat'] 
+            'numberformat'=> [',', '.'], // dec_point, thousands_sep 
+        ],
     );
 
     function __construct($presets=false) { // $presets=array() 
@@ -95,7 +107,7 @@ class bnformat {
 
 
     function langname() {
-        return $this->numwords[$this->presets['lang']]['langname']; // "Deutsch"
+        return $this->numwords[$this->presets['lang']]['langname']; // outputs: "Deutsch" 
     }
 
 
