@@ -29,7 +29,7 @@ The output looks like this (Deutsch, English):
 ```html
 98.4 µs   = 9.8437291615846E-5 [second, English format]
 3.7 km   = 3657.3480260881 [meter, accuracy: 2 digits]
-695 KiB   = 711372 [byte, binary conversion]
+695 KiB   = 711372 [byte, binary prefixes]
 ```
 
 
