@@ -156,18 +156,17 @@ class bnformat {
     function tnum($val, $plural=false, $fullsingular=false, $md=[]) { 
         // writes integer numbers 0..12 written-out. all others as round digits (for running text)
         // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree"(!) 
-        $pdp=0; 
+        $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
-        //if ($pdp!=0) return $this->_out_val($val, $pdp, $md);
-        $val=round($val); 
-        // >12
-        if (abs($val)>12) {
+        // >12 or fractional 
+        if (($pdp!=0) or (abs($val)>12)) {
             $rt=$this->_out_val($val, $pdp, $lang);
-            if (!empty($plural)) $rt.=' '.$plural;
+            if (!empty($plural)) $rt.=' '.$plural; 
         }
         // 0..12
         else {
+            $val=round($val); 
             // number as word
             $rt=$this->numwords[$lang][abs($val)];
             // add object text
@@ -185,7 +184,7 @@ class bnformat {
                     $rt=$this->ucfirst($rt);
                     break;
 
-                    case 'upper':
+                    case 'upper': 
                     $rt=mb_strtoupper($rt);
                     break;
                 }
