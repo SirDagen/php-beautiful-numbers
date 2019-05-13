@@ -9,7 +9,7 @@ $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German
 ```
 
 
-## 1. sinum() – SI number ##
+## 1. sinum() – SI numbers ##
 
 Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot, which is the standard setting).  
 
@@ -33,7 +33,7 @@ The output looks like this (Deutsch, English):
 ```
 
 
-## 2.1. tnum() – text number ##
+## 2.1. tnum() – text numbers ##
 
 In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
@@ -56,7 +56,7 @@ I see a tree on the hill.
 ```
 
 
-## 2.2. tchoice() – text choice ##
+## 2.2. tchoice() – text choices ##
 
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. it "stands" vs. they "stand"). 
 
