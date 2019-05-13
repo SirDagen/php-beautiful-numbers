@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.9
+ * Version      1.0.10
  * @author      SirDagen
  */
 
@@ -35,7 +35,9 @@ class bnformat {
     $bn->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
     
     $bn->tnum( 9 ); // outputs numbers for running text (0..12 will be written-out) // = nine
-    $bn->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
+    $bn->tnum( 5, 'Bäume', 'einem Baum' ); // you can also make tnum choose between the singular and plural word
+    
+    $bn->tnumchoose( 5, 'stehen', 'steht' ); // if you use tnum you might also need tnumchoose to transform the verb of the sentence into singular
     
     */
 
@@ -102,7 +104,7 @@ class bnformat {
         // outputs numbers in local number format (with stated decimal places)
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         if ($val===false) {
-            if ($txt) return '-';
+            if ($tx) return '-';
             return '&ndash;';
         }
         if ($pdp==99) {
@@ -133,51 +135,88 @@ class bnformat {
         $prefix=$this->siprefix[$pow][$ptype];
         if (empty($unit) and empty($prefix)) $sp='';
         else {
-            if ($txt) $sp=' '; else $sp='&#8239;'; // = &thinsp;
+            if ($tx) $sp=' '; else $sp='&#8239;'; // = &thinsp;
         }
         $rt=$this->_out_val($val, $acc, $md).$sp.$prefix.$unit;
         return $rt;
     }
 
     
-    function ucfirst($txt) { // upper case first letter
-        if (empty($txt)) return $txt;
+    function ucfirst($tx) { // upper case first letter
+        if (empty($tx)) return $tx;
         return mb_strtoupper(mb_substr($tx, 0, 1)).mb_substr($tx, 1);
-        }
+    }
             
-    function lcfirst($txt) { // lower case first letter
-        if (empty($txt)) return $txt;
-        return mb_strtolower(mb_substr($tx, 0, 1)).mb_substr($txt, 1); 
-        }
+    function lcfirst($tx) { // lower case first letter
+        if (empty($tx)) return $tx;
+        return mb_strtolower(mb_substr($tx, 0, 1)).mb_substr($tx, 1); 
+    }
     
         
-    function tnum($val) { // , $pdp=0, $md=[] // pdp = post decimal places (99 = all)
-        // writes integer numbers 0..12 written-out. all others as digits
+    function tnum($val, $plural=false, $fullsingular=false, $md=[]) { 
+        // writes integer numbers 0..12 written-out. all others as round digits
         // for running text -> tnum()
-        $pdp=0; $md=[];
+        $pdp=0; 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
-        $t='charmod'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
-        if ($pdp!=0) return $this->_out_val($val, $pdp, $md);
+        $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
+        //if ($pdp!=0) return $this->_out_val($val, $pdp, $md);
         $val=round($val); 
-        if (abs($val)>12) return $this->_out_val($val, $pdp, $lang);
-        if ($val<0) {
-            $rt=$this->numwords[$lang]['minusword'].' ';
-            $val=-$val;
+        // >12
+        if (abs($val)>12) {
+            $rt=$this->_out_val($val, $pdp, $lang);
+            if (!empty($plural)) $rt.=' '.$plural;
+        }
+        // 0..12
+        else {
+            // number as word
+            $rt=$this->numwords[$lang][abs($val)];
+            // add object text
+            if (!empty($plural)) {
+                if ((abs($val)==1) and !empty($fullsingular)) $rt=$fullsingular;
+                else $rt.=' '.$plural;
             }
-        else $rt='';
-        $rt.=$this->numwords[$lang][$val];
-        if (!empty($charmod)) {
-            switch($charmod) {
-                case 'ucfirst':
+            if ($val<0) {
+                $rt=$this->numwords[$lang]['minusword'].' '.$rt;
+                $val=-$val; 
+                }
+            if (!empty($transform)) {
+                switch($transform) {
+                    case 'ucfirst':
                     $rt=$this->ucfirst($rt);
                     break;
-                case 'toupper':
+
+                    case 'upper':
                     $rt=mb_strtoupper($rt);
                     break;
                 }
             }
-        return $rt;
         }
+        return $rt;
+    }
+
+function tnumchoose($val, $plural, $singular, $md=[]) {
+    $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
+    $aval=abs(round($val)); 
+    // >12
+    if ($aval>12) $rt=$plural;
+    // 0..12
+    else {
+        if ($aval==1) $rt=$singular;
+        else $rt=$plural;
+    }
+    if (!empty($transform)) {
+        switch($transform) {
+            case 'ucfirst':
+            $rt=$this->ucfirst($rt);
+            break;
+
+            case 'upper':
+            $rt=mb_strtoupper($rt);
+            break;
+        }
+    }
+    return $rt; 
+}
 
 
 
