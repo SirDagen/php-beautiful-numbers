@@ -67,7 +67,8 @@ echo $bn->tnumchoice(1, 'Stand ', 'Stands ').$bn->tnum(1, 'trees', 'a tree')
 echo $bn->tnumchoice(2, 'Stand ', 'Stands ').$bn->tnum(2, 'trees', 'a tree')
     ." stand in the market square.";
 echo $bn->tnum(3, 'trees ', 'a tree ', ['transform'=>'ucfirst'])
-    .$bn->tnumchoice(3, 'stand', 'stands')." in the market square.";
+    .$bn->tnumchoice(3, 'stand', 'stands')
+    ." in the market square.";
 
 ```
 
