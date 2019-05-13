@@ -156,9 +156,10 @@ class bnformat {
     function tnum($val, $syntax=false, $md=[]) {  // text number // $syntax = array('plural', 'full_singular')
         // writes integer numbers 0..12 written-out. all others as round digits (for running text)
         // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree" (!) 
+        // the standard accuracy for tnum is 2
         if (($syntax!==false) and !is_array($syntax)) echo "***?ERROR-1 tnum()*** ";
         if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tnum()*** ";
-        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=2; //$this->presets['acc']; // accuracy (= decimal digits) 
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=2; // accuracy (= decimal digits) 
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
