@@ -47,12 +47,12 @@ The output looks like this (Deutsch, English):
 ```html
 Ich sehe neun Bäume auf dem Hügel.
 Ich sehe 14 Bäume auf dem Hügel.
-Ich sehe einen Baum auf dem Hügel.
+Ich sehe 120.000 Bäume auf dem Hügel.   (= 122823) [Genauigkeit: 2 Stellen]
 ``` 
 ```html
 I see nine trees on the hill.
 I see 14 trees on the hill.
-I see a tree on the hill.
+I see 120,000 trees on the hill.   (= 122823) [accuracy: 2 digits]
 ```
 
 *Ann.: We use an array for the language part so that it is easier to implement* php-beautiful-numbers *in multi-language websites, e.g. tnum($val, $LANG['de']['termin-AKK']) for the German accusative form like ["Termine", "einen Termin"] and tnum($val, $LANG['de']['termin-NOM']) for the German nominative form like ["Termine", "ein Termin"].*
