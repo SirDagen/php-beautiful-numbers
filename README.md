@@ -62,7 +62,7 @@ If you want the perfect use of numbers in running text, you might additionally n
 
 ```php
 echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // begin uppercase  
-    . $bn->tchoice( $val, 'stand', 'stands') // choose corresponding verb
+    . $bn->tchoice( $val, 'stand', 'stands') // select right syntax
     . " in the market square.";
 
 ```
