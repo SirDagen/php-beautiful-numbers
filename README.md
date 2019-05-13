@@ -57,17 +57,17 @@ I see two trees on the hill.
 ```
 
 
-## 3. tnumchoice() ##
+## 3. tchoice() ##
 
-If you want the perfect use of numbers in running text, you might additionally need tnumchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
+If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
 ```php
-echo $bn->tnumchoice(1, 'Stand ', 'Stands ').$bn->tnum(1, 'trees', 'a tree')
+echo $bn->tchoice(1, 'Stand ', 'Stands ').$bn->tnum(1, 'trees', 'a tree')
     ." stand in the market square.";
-echo $bn->tnumchoice(2, 'Stand ', 'Stands ').$bn->tnum(2, 'trees', 'a tree')
+echo $bn->tchoice(2, 'Stand ', 'Stands ').$bn->tnum(2, 'trees', 'a tree')
     ." stand in the market square.";
 echo $bn->tnum(3, 'trees ', 'a tree ', ['transform'=>'ucfirst'])
-    .$bn->tnumchoice(3, 'stand', 'stands')
+    .$bn->tchoice(3, 'stand', 'stands')
     ." in the market square.";
 
 ```
