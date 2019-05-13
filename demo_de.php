@@ -36,9 +36,9 @@ echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // Gen
 
 
 // tnum()
-echo "<br/><h3><pre>B. \"tnum\": Gibt Zahlen im Fließtext aus (1..12 werden ausgeschrieben)</pre></h3>";
+echo "<br/><h3><pre>B. \"tnum\": Gibt Zahlen im Fließtext aus (0..12 werden ausgeschrieben)</pre></h3>";
 
-// Zahlen 1..12 werden ausgeschrieben, alle anderen als Zahlen ausgegeben (wie es in Publikationen üblich ist)
+// Zahlen 0..12 werden ausgeschrieben, alle anderen als Zahlen ausgegeben (wie es in Publikationen üblich ist)
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(2, 15); 
