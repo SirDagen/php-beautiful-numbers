@@ -47,12 +47,6 @@ for ($i=0;$i<3;$i++) {
 echo "</p>"; 
 
 
-echo "<p><i>Aber auch Kommazahlen (wenn benötigt):</i></p>";
-
-$val=mt_rand()/mt_getrandmax()*2;
-echo "<p>Das Mittel liegt bei ".$bn->tnum($val, 1)." Kindern.</p>"; 
-
-
 
 echo "<br/>&nbsp;<br/>";
 
