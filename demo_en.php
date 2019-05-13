@@ -64,7 +64,7 @@ echo "<br/><h3><pre>C. \"tchoice\": Distinguishes between singular und plural</p
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 3); 
-    echo $bn->tchoice($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.<br/>"; 
+    echo $bn->tchoice($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square?<br/>"; 
 }
 echo "</p>"; 
 
