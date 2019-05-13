@@ -57,11 +57,13 @@ There are 14 trees on the hill.
 
 ## 3. tnumchoose() ##
 
-If you want to perfectly use numbers in running text, you might additionally need tnumchoose() to distinguish between singular and plural. 
+If you want the perfect use of numbers in running text, you might additionally need tnumchoose() to distinguish between singular and plural for the verb of the sentence (e.g. "stands"). 
 
 ```php
-echo $bn->tnumchoose(1, 'do', 'does', ['transform'=>'ucfirst'])." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.";
-echo $bn->tnumchoose(2, 'do', 'does', ['transform'=>'ucfirst'])." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.";
+echo $bn->tnumchoose(1, 'do', 'does', ['transform'=>'ucfirst'])." "
+    .$bn->tnum($val, 'trees', 'a tree')." stand in the market square.";
+echo $bn->tnumchoose(2, 'do', 'does', ['transform'=>'ucfirst'])." "
+    .$bn->tnum($val, 'trees', 'a tree')." stand in the market square.";
 ```
 
 The output looks like this (Deutsch, English):
