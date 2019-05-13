@@ -55,9 +55,7 @@ I see one tree on the hill.   (=1)
 I see 120,000 trees on the hill.   (=122823) [accuracy: 2 digits]
 ```
 
-*Ann.: We use an array for the language element so that it is easier to use in multi-language websites, e.g. 
-tnum($val, $LANG['de']['termin-AKK']) for the German accusative form ["Termine", "einen Termin"] and 
-tnum($val, $LANG['de']['termin-NOM']) for the nominative ["Termine", "ein Termin"].*
+*Ann.: We use an array for the language element so that it is easier to use in multi-language websites, e.g. tnum($val, $LANG['de']['termin-AKK']) for the German accusative form ["Termine", "einen Termin"] and tnum($val, $LANG['de']['termin-NOM']) for the nominative ["Termine", "ein Termin"].*
 
 ## 2.2. tsyn() – text syntax ##
 
