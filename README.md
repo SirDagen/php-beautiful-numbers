@@ -39,7 +39,7 @@ In newspapers and other running text it is common practice to note the numbers f
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
-echo "I see " . $bn->tnum( $val, ['trees', 'a tree'] ) . " on the hill."; // singular distinction
+echo "I see " . $bn->tnum( $val, ['trees', 'one tree'] ) . " on the hill."; // singular distinction
 ```
 
 The output looks like this (Deutsch, English):
@@ -52,7 +52,7 @@ Ich sehe einen Baum auf dem Hügel.
 ```html
 I see nine trees on the hill.
 I see 14 trees on the hill.
-I see a tree on the hill.
+I see one tree on the hill.
 ```
 
 When you display large numbers this function automatically rounds to the given accuracy (Deutsch, English):
