@@ -57,14 +57,14 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
-// tnumchoice() - additionally use of 
+// tchoice() - additionally use of 
 
-echo "<br/><h3><pre>C. \"tnumchoice\": Distinguishes between singular und plural</pre></h3>";
+echo "<br/><h3><pre>C. \"tchoice\": Distinguishes between singular und plural</pre></h3>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 3); 
-    echo $bn->tnumchoice($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.<br/>"; 
+    echo $bn->tchoice($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.<br/>"; 
 }
 echo "</p>"; 
 
