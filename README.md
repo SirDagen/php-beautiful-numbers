@@ -71,13 +71,13 @@ echo $bn->tnumchoice(2, 'do', 'does', ['transform'=>'ucfirst'])." "
 The output looks like this (Deutsch, English):
 
 ```html
-Does one tree stand in the market square.
-Do two trees stand in the market square.
-``` 
-```html
 Steht ein Baum auf dem Marktplatz.
 Stehen zwei Bäume auf dem Marktplatz.
 ```
+```html
+Does one tree stand in the market square.
+Do two trees stand in the market square.
+``` 
 
 
 Have fun!
