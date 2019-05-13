@@ -1,6 +1,6 @@
 # php-beautiful-numbers
 
-## __construct ##
+## 0. __construct ##
 
 php-beautiful-numbers works with multiple languages. When you call the constructor, you can state the tongue you want to use as well as other options like the accuracy e.g. (see manual in class file).  
 
@@ -9,7 +9,7 @@ $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German
 ```
 
 
-## sinum() – SI number ##
+## 1. sinum() – SI number ##
 
 Not only in the physics department it is good practice to use the SI format for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot).  
 
@@ -33,7 +33,7 @@ The output looks like this (Deutsch, English):
 ```
 
 
-## tnum() – text number ##
+## 2. tnum() – text number ##
 
 In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
@@ -56,7 +56,7 @@ I see two trees on the hill.
 ```
 
 
-## tchoice() – text choice ##
+## 3. tchoice() – text choice ##
 
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
