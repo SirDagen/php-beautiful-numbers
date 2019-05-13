@@ -14,7 +14,7 @@
 namespace bnformat;
 
 /*
- * Name         php-beautiful-numbers class - (number format functions)
+ * Name         php-beautiful-numbers class (number format functions)
  * Version      1.0.9
  * @author      SirDagen
  */
@@ -34,7 +34,7 @@ class bnformat {
     $bn->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
     $bn->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
     
-    $bn->tnum( 9 ); // outputs numbers for running text (1..12 will be written-out) // = nine
+    $bn->tnum( 9 ); // outputs numbers for running text (0..12 will be written-out) // = nine
     $bn->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
     
     */
@@ -65,7 +65,7 @@ class bnformat {
 
         
     
-    // numbers 1..12 are usually written-out in publications 
+    // numbers 0..12 are usually written-out in publications 
     var $numwords=array(
         'de'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
                 'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
@@ -84,7 +84,7 @@ class bnformat {
             ],
     );
 
-    function __construct($presets=false) { // array() 
+    function __construct($presets=false) { // $presets=array() 
         // overwrite presets (if stated)
         if (is_array($presets)) foreach ($presets as $k0=>$v0) $this->presets[$k0] = $v0; 
         // if numberformat is not explicitly set (presets['numberformat']), get numberformat from language (presets['lang']) 
@@ -152,7 +152,7 @@ class bnformat {
     
         
     function tnum($val, $pdp=0, $md=[]) { // pdp = post decimal places (99 = all)
-        // writes integer numbers 1..12 written-out. all others as digits
+        // writes integer numbers 0..12 written-out. all others as digits
         // for running text -> tnum()
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='charmod'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
