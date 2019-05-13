@@ -48,6 +48,7 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
+
 // tnum() - volle Nutzung
 
 echo "<p>"; 
@@ -56,6 +57,25 @@ for ($i=0;$i<3;$i++) {
     echo $bn->tnum($val, ['Bäume', 'einen Baum'], ['transform'=>'ucfirst'])." sehe ich am Wegesrand stehen.<br/>"; 
 }
 echo "</p>"; 
+
+echo "<p><b>Und rundet auf vorgegebene Genauigkeit (= 2 Stellen):</b></p>";
+
+echo "<p>"; 
+for ($i=0;$i<3;$i++) {
+    $val=mt_rand(100, 2000000); 
+    echo "ca. ".$bn->tnum($val, ['Haushalte', 'ein Haushalt'], ['acc'=>2])." &nbsp;(= {$val} Haushalte)<br/>"; 
+}
+echo "</p>"; 
+
+/*
+echo "<p>"; 
+for ($i=0;$i<3;$i++) {
+    $val=mt_rand(1, 2000000)/90000000;  
+    echo "ca. ".$bn->tnum($val, ['Haushalte', 'ein Haushalt'], ['acc'=>2])." &nbsp;(= {$val} Haushalte)<br/>"; 
+}
+echo "</p>"; 
+*/
+
 
 // tsyn() - zusätzliche Nutzung von 
 
@@ -67,6 +87,7 @@ for ($i=0;$i<3;$i++) {
     echo $bn->tsyn($val, ['Stehen', 'Steht'])." ".$bn->tnum($val, ['Bäume', 'ein Baum'])." auf dem Marktplatz.<br/>"; 
 }
 echo "</p>"; 
+
 
 
 echo "<br/>&nbsp;<br/>";
