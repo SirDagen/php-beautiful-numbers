@@ -137,7 +137,7 @@ class bnformat {
         $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (= decimal digits) - preset = 3
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
-        // $pow=floor(log($val, $base)); $val/=pow($base, $pow2); // dont know what way is faster in average
+        // $pow=floor(log($val, $base)); $val/=pow($base, $pow); // dont know what way is faster in average
         $pow=0;
         if (!empty($val)) {
             while (abs($val)<1) { $val*=$base; $pow--; }
