@@ -35,7 +35,7 @@ The output looks like this (Deutsch, English):
 
 ## 2. tnum() ##
 
-In newspapers and other running text it is common practice to note the numbers from 1 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
+In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
 ```php
 echo "There are ".$bn->tnum(9)." trees on the hill.";
