@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.13
+ * Version      1.0.14
  * @author      Gordon Axmann
  */
 
@@ -35,9 +35,9 @@ class bnformat {
     $bn->sinum( 404436, 'B', ['bin'=>true] ); // sinum() also works with the binary system // = 395 KiB
     
     $bn->tnum( 9 ); // outputs numbers for running text (0..12 will be written-out) // = nine
-    $bn->tnum( 5, 'Bäume', 'einem Baum' ); // you can also make tnum() choose between the singular and plural word
+    $bn->tnum( 5, ['Bäume', 'einem Baum'] ); // you can also make tnum() choose between the plural and the singular word
     
-    $bn->tsyn( 5, 'stehen', 'steht' ); // for the perfect use of numbers in running text you might have to use tsyn() to select the corresponding syntax of the verb (see demo file)
+    $bn->tsyn( 5, ['stehen', 'steht'] ); // for the perfect use of numbers in running text you might have to use tsyn() to select the corresponding syntax of the verb (see demo file)
     
     */
 
@@ -153,16 +153,18 @@ class bnformat {
     }
     
         
-    function tnum($val, $plural=false, $fullsingular=false, $md=[]) {  // text number
+    function tnum($val, $syntax=false, $md=[]) {  // text number // $syntax = array('plural', 'full_singular')
         // writes integer numbers 0..12 written-out. all others as round digits (for running text)
-        // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree"(!) 
+        // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree" (!) 
+        if (($syntax!==false) and !is_array($syntax)) echo "***?ERROR-1 tnum()*** ";
+        if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tnum()*** ";
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
         // >12 or fractional 
         if (($pdp!=0) or (abs($val)>12)) {
             $rt=$this->out_val($val, $pdp, $lang);
-            if (!empty($plural)) $rt.=' '.$plural; 
+            if (is_array($syntax)) $rt.=' '.$syntax[0]; 
         }
         // 0..12
         else {
@@ -170,9 +172,9 @@ class bnformat {
             // number as word
             $rt=$this->numwords[$lang][abs($val)];
             // add object text
-            if (!empty($plural)) {
-                if ((abs($val)==1) and !empty($fullsingular)) $rt=$fullsingular;
-                else $rt.=' '.$plural;
+            if (is_array($syntax)) {
+                if (abs($val)==1) $rt=$syntax[1];
+                else $rt.=' '.$syntax[0];
             }
             if ($val<0) {
                 $rt=$this->numwords[$lang]['minusword'].' '.$rt;
@@ -193,12 +195,14 @@ class bnformat {
         return $rt;
     }
 
-function tsyn($val, $plural, $singular, $md=[]) { // text syntax
-    // chooses between the use of plural or singular
+function tsyn($val, $syntax, $md=[]) { // text syntax // $syntax = array('plural', 'singular')
+    // chooses between the use of syntax[0] or singular
+    if (!is_array($syntax)) echo "***?ERROR-1 tsyn()*** ";
+    if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tsyn()*** ";
     $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
     $val=round($val); 
-    if (abs($val)==1) $rt=$singular;
-    else $rt=$plural;
+    if (abs($val)==1) $rt=$syntax[1];
+    else $rt=$syntax[0];
     if (!empty($transform)) {
         switch($transform) {
             case 'ucfirst':
