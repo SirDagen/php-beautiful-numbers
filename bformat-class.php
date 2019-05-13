@@ -11,7 +11,7 @@
  *              https://github.com/SirDagen/php-beautiful-numbers/blob/master/LICENSE 
  */
 
-namespace PHPbn;
+namespace PHPbf;
 
 /*
  * PHPbformat - php-beautiful-numbers class - (number format functions)
@@ -25,21 +25,21 @@ class bformat {
 
     --- INIT
 
-    $bn = new PHPbformat\bformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // if you state the language, the number format will be set automatically accordingly 
+    $bf = new PHPbformat\bformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // if you state the language, the number format will be set automatically accordingly 
 
 
     --- QUICK MANUAL
 
-    $bn->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages // = 7.8 km (English) -OR- 7,8 km (German)
-    $bn->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
-    $bn->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
+    $bf->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages // = 7.8 km (English) -OR- 7,8 km (German)
+    $bf->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
+    $bf->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
     
-    $bn->tnum( 9 ); // outputs numbers for running text (1..12 will be written-out) // = nine
-    $bn->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
+    $bf->tnum( 9 ); // outputs numbers for running text (1..12 will be written-out) // = nine
+    $bf->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
     
     */
 
-    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // all presets can be overwriten when using the constructor // $bn = new PHPbformat\bformat([ 'lang'=>'en' ); 
+    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // all presets can be overwriten when using the constructor // $bf = new PHPbformat\bformat([ 'lang'=>'en' ); 
 
     // SI and binary prefixes (binary prefixes below 0 make no sense '?')
     // https://en.wikipedia.org/wiki/International_System_of_Units
