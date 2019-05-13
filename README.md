@@ -15,7 +15,7 @@ Not only in the physics department it is good practice to use the SI format for 
 
 ```php
 echo $zformat->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
-echo $zformat->sinum( 9.8437291615846E-5, 's'); 
+echo $zformat->sinum( 9.8437291615846E-5, 's'); // use standard accuracy (= 3 digits)
 echo $zformat->sinum( 711372, 'B', ['bin'=>true] ); // set to binary instead of SI prefixes
 ```
 
