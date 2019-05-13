@@ -151,7 +151,7 @@ class bnformat {
         }
     
         
-    function tnum($val, $pdp=0, $md=[]) { // pdp = post decimal places (99 = all)
+    function tnum($val) { // , $pdp=0, $md=[] // pdp = post decimal places (99 = all)
         // writes integer numbers 0..12 written-out. all others as digits
         // for running text -> tnum()
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
