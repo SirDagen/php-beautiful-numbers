@@ -61,10 +61,10 @@ I see two trees on the hill.
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
 ```php
-echo $bn->tchoice( $val, 'Stand ', 'Stands ' ) // choose verb
+echo $bn->tchoice( $val, 'Stand', 'Stands' ) . " " // choose verb
     . $bn->tnum( $val, 'trees', 'a tree' ) // tnum()
     . " in the market square.";
-echo $bn->tnum( $val, 'trees ', 'a tree ', ['transform'=>'ucfirst']) // tnum() + transform 
+echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // tnum() + transform 
     . $bn->tchoice( $val, 'stand', 'stands') // choose verb
     . " in the market square.";
 
