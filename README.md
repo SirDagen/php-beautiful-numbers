@@ -58,7 +58,7 @@ I see a tree on the hill.
 
 ## 2.2. tsyn() – text syntax ##
 
-If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the verb of the sentence (e.g. "it stands" vs. "they stand"). 
+If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the verb of the sentence (e.g. they "stand" vs. it "stands"). 
 
 ```php
 echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // start uppercase  
