@@ -38,20 +38,20 @@ The output looks like this (Deutsch, English):
 In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
 ```php
-echo "There are " . $bn->tnum( $val ) . " trees on the hill.";
+echo "I see " . $bn->tnum( $val ) . " trees on the hill.";
 echo "Ich sehe " . $bn->tnum( $val, 'Bäume', 'einen Baum' ) . " auf dem Hügel."; // singular & plural    
 ```
 
 The output looks like this (Deutsch, English):
 
 ```html
-Es sind neun Bäume auf dem Hügel.
-Es sind 14 Bäume auf dem Hügel.
+Ich sehe neun Bäume auf dem Hügel.
+Ich sehe 14 Bäume auf dem Hügel.
 Ich sehe zwei Bäume auf dem Hügel.
 ``` 
 ```html
-There are nine trees on the hill.
-There are 14 trees on the hill.
+I see nine trees on the hill.
+I see 14 trees on the hill.
 I see two trees on the hill.
 ```
 
