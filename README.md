@@ -5,7 +5,7 @@
 PHP-beautiful-numbers works with multiple languages. When you call the constructor, you can state the tongue you want to use as well as other options like the accuracy e.g. (see manual in class file).  
 
 ```php
-$bn = new PHPbn\bformat( ['lang'=>'de'] ); // choose German output
+$bf = new PHPbn\bformat( ['lang'=>'de'] ); // choose German output
 ```
 
 
@@ -14,9 +14,9 @@ $bn = new PHPbn\bformat( ['lang'=>'de'] ); // choose German output
 Not only in the physics department it is good practice to use the SI format for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot).  
 
 ```php
-echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
-echo $bn->sinum( 9.8437291615846E-5, 's'); // use standard accuracy (= 3 digits)
-echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary conversion (instead of SI prefixes) 
+echo $bf->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
+echo $bf->sinum( 9.8437291615846E-5, 's'); // use standard accuracy (= 3 digits)
+echo $bf->sinum( 711372, 'B', ['bin'=>true] ); // use binary conversion (instead of SI prefixes) 
 ```
 
 The output looks like this (Deutsch, English):
@@ -38,8 +38,8 @@ The output looks like this (Deutsch, English):
 In newspapers and other running text it is common practice to note the numbers from 1 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
 ```php
-echo "There are ".$bn->tnum(9)." trees on the hill.";
-echo "There are ".$bn->tnum(14)." trees on the hill.";
+echo "There are ".$bf->tnum(9)." trees on the hill.";
+echo "There are ".$bf->tnum(14)." trees on the hill.";
     
 ```
 
