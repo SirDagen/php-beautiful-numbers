@@ -72,12 +72,12 @@ The output looks like this (Deutsch, English):
 ```html
 Ein Baum steht auf dem Marktplatz.
 Zwei Bäume stehen auf dem Marktplatz.
-Drei Bäume stehen auf dem Marktplatz.
+15 Bäume stehen auf dem Marktplatz.
 ```
 ```html
 A tree stands in the market square.
 Two trees stand in the market square.
-Three trees stand in the market square.
+15 trees stand in the market square.
 ``` 
 
 
