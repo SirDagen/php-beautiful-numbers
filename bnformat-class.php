@@ -162,17 +162,16 @@ class bnformat {
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
-        $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
-        if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
-       // >12 or fractional 
-        if (($pdp!=0) or (abs($val)>12) or ((abs($val)<=0.99) and (abs($val)>0))) {
+        $base=1000; 
+        // >12 or fractional  
+        if (($pdp!=0) or (abs($val)>12) or ((abs($val)<0.995) and (abs($val)>0))) {
             if ($pdp!=0) $rt=$this->out_val($val, $pdp, $md);
             else {
                 $pow=0; $a=$val;
                 if (!empty($val)) {
                     while (abs($a)<1) { $a*=$base; $pow--; }
                 }
-                //$pow2=floor(log($val, 10)); echo "{$pow2} ".(3*$pow)." "; // doesnt work 
+                //$pow2=floor(log($val, 10)); // doesnt work 
                 $acc-=strlen(floor(abs($a)))+3*$pow; //if ($acc<0) $acc=0; // only positive values supported right now
                 $rt=$this->out_val($val, $acc, $md);
             }
