@@ -39,7 +39,7 @@ In newspapers and other running text it is common practice to note the numbers f
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
-echo "I see " . $bn->tnum( $val, 'trees', 'a tree' ) . " on the hill."; // singular distinction
+echo "I see " . $bn->tnum( $val, ['trees', 'a tree'] ) . " on the hill."; // singular distinction
 ```
 
 The output looks like this (Deutsch + English):
@@ -61,8 +61,8 @@ I see a tree on the hill.
 If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the verb of the sentence (e.g. they "stand" vs. it "stands"). 
 
 ```php
-echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst'] ) . " " // start uppercase  
-    . $bn->tsyn( $val, 'stand', 'stands' ) // corresponding syntax
+echo $bn->tnum( $val, ['trees', 'a tree'], ['transform'=>'ucfirst'] ) . " " // start uppercase  
+    . $bn->tsyn( $val, ['stand', 'stands'] ) // corresponding syntax
     . " in the market square.";
 
 ```
