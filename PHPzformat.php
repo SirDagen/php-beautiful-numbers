@@ -15,7 +15,7 @@ namespace PHPzformat;
 
 /*
  * PHPzformat - PHP format functions class.
- * Version      1.0.5
+ * Version      1.0.6
  * @author      SirDagen
  */
 
@@ -34,8 +34,8 @@ class zformat {
     $zformat->sinum(404436, 'B', ['bin'=>true]); // works also with the binary system -> 395 KiB
     $zformat->sinum(7833.6227931239, 'B', ['acc'=>2]); // works also with the binary system -> 7.8 km (English) OR 7,8 km (German)
 
-    $zformat->outnum(10); // outputs numbers for running text (1..12 will be written-out) -> ten
-    $zformat->outnum(42.4956, 2); // 2 decimal places -> 42.50 (this is basically the number_format function)
+    $zformat->tnum(10); // outputs numbers for running text (1..12 will be written-out) -> ten
+    $zformat->tnum(42.4956, 2); // 2 decimal places -> 42.50 (this is basically the number_format function)
     
     */
 
@@ -97,7 +97,7 @@ class zformat {
     }
 
 
-    // dont use this function, use outnum()
+    // dont use this function, use tnum()
     function _out_val($val, $pdp=0, $md=[]) { // post decimal places (99 = all)
         // outputs numbers in local number format (with stated decimal places)
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
@@ -150,7 +150,7 @@ class zformat {
         }
     
         
-    function outnum($val, $pdp=0, $md=[]) { // pdp = post decimal places (99 = all)
+    function tnum($val, $pdp=0, $md=[]) { // pdp = post decimal places (99 = all)
         // writes integer numbers 1..12 written-out. all others as digits
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='charmod'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
