@@ -61,11 +61,8 @@ I see two trees on the hill.
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
 ```php
-echo $bn->tchoice( $val, 'Stand', 'Stands' ) . " " // Stands | stand
-    . $bn->tnum( $val, 'trees', 'a tree' ) // a tree | two trees
-    . " in the market square.";
-echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // A tree | Three trees 
-    . $bn->tchoice( $val, 'stand', 'stands') // stands | stand
+echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // e.g. Three trees 
+    . $bn->tchoice( $val, 'stand', 'stands') // e.g. stand
     . " in the market square.";
 
 ```
@@ -73,13 +70,13 @@ echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // A tr
 The output looks like this (Deutsch, English):
 
 ```html
-Steht ein Baum auf dem Marktplatz.
-Stehen zwei Bäume auf dem Marktplatz.
+Ein Baum steht auf dem Marktplatz.
+Zwei Bäume stehen auf dem Marktplatz.
 Drei Bäume stehen auf dem Marktplatz.
 ```
 ```html
-Stands a tree in the market square.
-Stand two trees in the market square.
+A tree stands in the market square.
+Two trees stand in the market square.
 Three trees stand in the market square.
 ``` 
 
