@@ -2,10 +2,10 @@
 
 ## 0. __construct ##
 
-PHP-beautiful-numbers works with multiple languages. When you call the constructor you can state the tongue you are going to use (as well as other options like the accuracy for example, see manual in class file).  
+PHP-beautiful-numbers works with multiple languages. When you call the constructor, you can state the tongue you want to use as well as other options like the accuracy e.g. (see manual in class file).  
 
 ```php
-$bn = new PHPbn\zformat([ 'lang'=>'de' ]); // choose German output
+$bn = new PHPbn\bformat( ['lang'=>'de'] ); // choose German output
 ```
 
 
