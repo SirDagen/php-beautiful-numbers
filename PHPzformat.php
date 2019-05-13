@@ -152,6 +152,7 @@ class zformat {
         
     function tnum($val, $pdp=0, $md=[]) { // pdp = post decimal places (99 = all)
         // writes integer numbers 1..12 written-out. all others as digits
+        // for running text -> tnum()
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='charmod'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
         if ($pdp!=0) return $this->_out_val($val, $pdp, $md);
