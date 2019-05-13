@@ -53,7 +53,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(0, 3); 
-    echo $bn->tnum($val, 'trees', 'one tree', ['transform'=>'ucfirst'])." I see standing at the wayside.<br/>"; 
+    echo $bn->tnum($val, ['trees', 'one tree'], ['transform'=>'ucfirst'])." I see standing at the wayside.<br/>"; 
 }
 echo "</p>"; 
 
@@ -64,7 +64,7 @@ echo "<br/><h3><pre>C. \"tsyn\": Distinguishes between singular und plural - tex
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 3); 
-    echo $bn->tsyn($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square?<br/>"; 
+    echo $bn->tsyn($val, ['Do', 'Does'])." ".$bn->tnum($val, ['trees', 'a tree'])." stand in the market square?<br/>"; 
 }
 echo "</p>"; 
 
