@@ -56,13 +56,13 @@ I see a tree on the hill.
 ```
 
 
-## 2.2. tchoice() – text choices ##
+## 2.2. tsyn() – text syntax ##
 
-If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. it "stands" vs. they "stand"). 
+If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the verb of the sentence (e.g. "it stands" vs. "they stand"). 
 
 ```php
 echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // start uppercase  
-    . $bn->tchoice( $val, 'stand', 'stands') // corresponding syntax
+    . $bn->tsyn( $val, 'stand', 'stands') // corresponding syntax
     . " in the market square.";
 
 ```
