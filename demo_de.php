@@ -8,9 +8,9 @@ require('PHPzformat.php');
 
 
 // Neue Instanz anlegen - Deutsches Nummberformat
-$bn = new PHPzformat\zformat( ['lang'=>'de'] ); 
+$bn = new PHPbn\zformat( ['lang'=>'de'] ); 
 
-echo "<br/><h1><b>php-beautiful-numbers (Format = ".$bn->langname().")</b><br/></h1>"; 
+echo "<br/><h1>php-beautiful-numbers <b>(Format = ".$bn->langname().")</b><br/></h1>"; 
 
 
 // sinum()
