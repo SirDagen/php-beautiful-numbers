@@ -1,6 +1,6 @@
 <?php
 
-require('PHPzformat.php'); 
+require('bformat-class.php'); 
 
 #
 # --- Demo: English 
@@ -8,7 +8,7 @@ require('PHPzformat.php');
 
 
 // Create a new instance - English number format
-$bn = new PHPbn\zformat( ['lang'=>'en'] );
+$bn = new PHPbn\bformat( ['lang'=>'en'] );
 
 echo "<br/><h1>php-beautiful-numbers <b>(format = ".$bn->langname().")</b><br/></h1>"; 
 
