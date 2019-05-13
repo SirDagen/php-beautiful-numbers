@@ -47,12 +47,6 @@ for ($i=0;$i<3;$i++) {
 echo "</p>"; 
 
 
-echo "<p><i>But also decimals (if needed):</i></p>";
-
-$val=mt_rand()/mt_getrandmax()*2;
-echo "<p>The mean is ".$bn->tnum($val, 1)." children.</p>"; 
-
-
 
 echo "<br/>&nbsp;<br/>";
 
