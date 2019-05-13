@@ -36,9 +36,9 @@ echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // acc
 
 
 // tnum()
-echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (1..12 will be written-out)</pre></h3>";
+echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (0..12 will be written-out)</pre></h3>";
 
-// outputs 1..12 written-out, all others as digits (as common practice in publications)
+// outputs 0..12 written-out, all others as digits (as common practice in publications)
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(2, 15); 
