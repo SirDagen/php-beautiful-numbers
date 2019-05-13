@@ -53,7 +53,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(0, 3); 
-    echo $bn->tnum($val, 'Bäume', 'einen Baum', ['transform'=>'ucfirst'])." sehe ich am Wegesrand stehen.<br/>"; 
+    echo $bn->tnum($val, ['Bäume', 'einen Baum'], ['transform'=>'ucfirst'])." sehe ich am Wegesrand stehen.<br/>"; 
 }
 echo "</p>"; 
 
@@ -64,7 +64,7 @@ echo "<br/><h3><pre>C. \"tsyn\": Unterscheidet zwischen Singular und Plural - te
 echo "<p>"; 
 for ($i=0;$i<3;$i++) { 
     $val=mt_rand(1, 3); 
-    echo $bn->tsyn($val, 'Stehen', 'Steht')." ".$bn->tnum($val, 'Bäume', 'ein Baum')." auf dem Marktplatz.<br/>"; 
+    echo $bn->tsyn($val, ['Stehen', 'Steht'])." ".$bn->tnum($val, ['Bäume', 'ein Baum'])." auf dem Marktplatz.<br/>"; 
 }
 echo "</p>"; 
 
