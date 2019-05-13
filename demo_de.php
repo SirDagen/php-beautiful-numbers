@@ -1,6 +1,6 @@
 <?php
 
-require('bformat-class.php'); 
+require('bnformat-class.php'); 
 
 #
 # --- Demo: Deutsch
@@ -8,7 +8,7 @@ require('bformat-class.php');
 
 
 // Neue Instanz anlegen - Deutsches Nummberformat
-$bn = new PHPbn\bformat( ['lang'=>'de'] ); 
+$bn = new bnformat\bnformat( ['lang'=>'de'] ); 
 
 echo "<br/><h1>php-beautiful-numbers <b>(Format = ".$bn->langname().")</b><br/></h1>"; 
 
