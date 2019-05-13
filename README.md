@@ -35,7 +35,7 @@ The output looks like this (Deutsch + English):
 
 ## 2.1. tnum() – text numbers ##
 
-In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. (We use an array for the language part so that it is easier to implement *php-beautiful-numbers* in multi-language websites, e.g. tnum($val, $LANG['de']['baum-AKK']) for German accusative form, e.g. ["Bäume", "einen Baum"].) 
+In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts.  
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
@@ -55,6 +55,7 @@ I see 14 trees on the hill.
 I see a tree on the hill.
 ```
 
+Ann.: We use an array for the language part so that it is easier to implement *php-beautiful-numbers* in multi-language websites, e.g. tnum($val, $LANG['de']['baum-AKK']) for German accusative form, e.g. ["Bäume", "einen Baum"].
 
 ## 2.2. tsyn() – text syntax ##
 
