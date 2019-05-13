@@ -5,7 +5,7 @@
  *
  * @see         https://github.com/SirDagen/php-beautiful-numbers
  *
- * @author      SirDagen
+ * @author      Gordon Axmann
  * @note        This program is licensed under the GNU General Public License v3.0
  *              Copyright and license notices must be preserved. See details at:
  *              https://github.com/SirDagen/php-beautiful-numbers/blob/master/LICENSE 
@@ -16,7 +16,7 @@ namespace bnformat;
 /*
  * Name         php-beautiful-numbers class (number format functions)
  * Version      1.0.13
- * @author      SirDagen
+ * @author      Gordon Axmann
  */
 
 class bnformat {
@@ -30,14 +30,14 @@ class bnformat {
 
     --- QUICK MANUAL
 
-    $bn->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages // = 7.8 km (English) -OR- 7,8 km (German)
-    $bn->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
-    $bn->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
+    $bn->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages, accuracy, number formats, ... // = 7.8 km (English) -OR- 7,8 km (German)
+    $bn->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI prefix format // = 503 µs
+    $bn->sinum( 404436, 'B', ['bin'=>true] ); // sinum() also works with the binary system // = 395 KiB
     
     $bn->tnum( 9 ); // outputs numbers for running text (0..12 will be written-out) // = nine
-    $bn->tnum( 5, 'Bäume', 'einem Baum' ); // you can also make tnum choose between the singular and plural word
+    $bn->tnum( 5, 'Bäume', 'einem Baum' ); // you can also make tnum() choose between the singular and plural word
     
-    $bn->tsyn( 5, 'stehen', 'steht' ); // if you use tnum you might also need tsyn to transform the verb of the sentence into singular
+    $bn->tsyn( 5, 'stehen', 'steht' ); // for the perfect use of numbers in running text you might have to use tsyn() to select the corresponding syntax of the verb (see demo file)
     
     */
 
@@ -99,9 +99,9 @@ class bnformat {
     }
 
 
-    // dont use this function, use tnum()
-    function _out_val($val, $pdp=0, $md=[]) { // post decimal places (99 = all)
-        // outputs numbers in local number format (with stated decimal places)
+    function out_val($val, $pdp=0, $md=[]) { // post decimal places (99 = all)
+        // outputs numbers in local number format (with stated decimal places) 
+        // it is a copy of number_format but with better rounding abilities
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         if ($val===false) {
             if ($tx) return '-';
@@ -118,7 +118,7 @@ class bnformat {
     }
  
 
-    function sinum($val, $unit='B', $md=[]) { 
+    function sinum($val, $unit='B', $md=[]) { // SI number
         // outs values with SI: "3240g" -> "3.24 kg"
         // https://en.wikipedia.org/wiki/International_System_of_Units
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
@@ -137,7 +137,7 @@ class bnformat {
         else {
             if ($tx) $sp=' '; else $sp='&#8239;'; // = &thinsp;
         }
-        $rt=$this->_out_val($val, $acc, $md).$sp.$prefix.$unit;
+        $rt=$this->out_val($val, $acc, $md).$sp.$prefix.$unit;
         return $rt;
     }
 
@@ -153,7 +153,7 @@ class bnformat {
     }
     
         
-    function tnum($val, $plural=false, $fullsingular=false, $md=[]) { 
+    function tnum($val, $plural=false, $fullsingular=false, $md=[]) {  // text number
         // writes integer numbers 0..12 written-out. all others as round digits (for running text)
         // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree"(!) 
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
@@ -161,7 +161,7 @@ class bnformat {
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
         // >12 or fractional 
         if (($pdp!=0) or (abs($val)>12)) {
-            $rt=$this->_out_val($val, $pdp, $lang);
+            $rt=$this->out_val($val, $pdp, $lang);
             if (!empty($plural)) $rt.=' '.$plural; 
         }
         // 0..12
@@ -193,7 +193,7 @@ class bnformat {
         return $rt;
     }
 
-function tsyn($val, $plural, $singular, $md=[]) {
+function tsyn($val, $plural, $singular, $md=[]) { // text syntax
     // chooses between the use of plural or singular
     $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
     $val=round($val); 
