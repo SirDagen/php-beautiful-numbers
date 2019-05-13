@@ -14,22 +14,22 @@ $zformat = new PHPzformat\zformat([ 'lang'=>'de', 'acc'=>3 ]);
 Not only in the physics department it is good practice to use the SI format for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot).  
 
 ```php
+echo $zformat->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 echo $zformat->sinum( 9.8437291615846E-5, 's'); 
 echo $zformat->sinum( 711372, 'B', ['bin'=>true] ); // set to binary instead of SI prefixes
-echo $zformat->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 ```
 
 The output looks like this (Deutsch, English):
 
 ```html
+3,7 km   = 3657.3480260881 [Meter, Genauigkeit 2 Stellen]
 98,4 µs   = 9.8437291615846E-5 [Sekunde]
 695 KiB   = 711372 [Byte, Deutsch, Binärsystem]
-3,7 km   = 3657.3480260881 [Meter, Genauigkeit 2 Stellen]
 ```
 ```html
+3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
 98.4 µs   = 9.8437291615846E-5 [second]
 695 KiB   = 711372 [byte, English, use binary conversion]
-3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
 ```
 
 
