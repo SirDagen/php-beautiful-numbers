@@ -15,7 +15,7 @@ echo "<br/><h1>php-beautiful-numbers <b>(format = ".$bn->langname().")</b><br/><
 
 // sinum()
 
-echo "<br/><h3><pre>A. \"sinum\": Outputs numbers in easy readable SI format</pre></h3>";
+echo "<br/><h3><pre>A. sinum() &ndash; Outputs numbers in easy readable SI format</pre></h3>";
 
 $val=mt_rand()/mt_getrandmax(); $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>"; 
@@ -38,7 +38,7 @@ echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // acc
 
 // tnum()
 
-echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (0..12 will be written-out) - text number</pre></h3>";
+echo "<br/><h3><pre>B. tnum() &ndash; Outputs numbers inside running text (0..12 will be written-out) - text number</pre></h3>";
 
 // outputs 0..12 written-out, all others as digits (as common practice in publications)
 echo "<p>"; 
@@ -79,7 +79,7 @@ echo "</p>";
 
 // tsyn() - additionally use of 
 
-echo "<br/><h3><pre>C. \"tsyn\": Distinguishes between singular und plural - text syntax</pre></h3>";
+echo "<br/><h3><pre>C. tsyn() &ndash; Distinguishes between singular und plural - text syntax</pre></h3>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
