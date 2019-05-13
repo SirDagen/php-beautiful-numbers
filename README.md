@@ -55,7 +55,7 @@ I see 14 trees on the hill.
 I see a tree on the hill.
 ```
 
-When you display very large numbers this function automatically rounds to the given accuracy (Deutsch, English):
+When you display large numbers this function automatically rounds to the given accuracy (Deutsch, English):
 
 ```html
 Ich sehe 120.000 Bäume auf dem Hügel.   (= 122823) [Genauigkeit: 2 Stellen]
