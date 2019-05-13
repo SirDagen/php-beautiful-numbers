@@ -33,7 +33,7 @@ The output looks like this (Deutsch, English):
 ```
 
 
-## 2. tnum() – text number ##
+## 2a. tnum() – text number ##
 
 In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
@@ -56,7 +56,7 @@ I see two trees on the hill.
 ```
 
 
-## 3. tchoice() – text choice ##
+## 2b. tchoice() – text choice ##
 
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
