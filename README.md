@@ -19,7 +19,7 @@ echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes (instead of SI) 
 ```
 
-The output looks like this (Deutsch + English):
+The output looks like this (Deutsch, English):
 
 ```html
 98,4 µs   = 9.8437291615846E-5 [Sekunde, deutsches Format]
@@ -42,7 +42,7 @@ echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy
 echo "I see " . $bn->tnum( $val, ['trees', 'a tree'] ) . " on the hill."; // singular distinction
 ```
 
-The output looks like this (Deutsch + English):
+The output looks like this (Deutsch, English):
 
 ```html
 Ich sehe neun Bäume auf dem Hügel.
@@ -68,7 +68,7 @@ echo $bn->tnum( $val, ['trees', 'a tree'], ['transform'=>'ucfirst'] ) . " " // s
 
 ```
 
-The output looks like this (Deutsch + English):
+The output looks like this (Deutsch, English):
 
 ```html
 Ein Baum steht auf dem Marktplatz.
