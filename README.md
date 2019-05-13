@@ -40,7 +40,7 @@ In newspapers and other running text it is common practice to note the numbers f
 ```php
 echo "There are ".$bn->tnum(9)." trees on the hill.";
 echo "There are ".$bn->tnum(14)." trees on the hill.";
-echo "Ich sehe ".$bn->tnum(2, 'Bäume', 'einen Baum')." auf dem Hügel."; // distinguish between singular and plural    
+echo "Ich sehe ".$bn->tnum(2, 'Bäume', 'einen Baum')." auf dem Hügel."; // singular & plural    
 ```
 
 The output looks like this (Deutsch, English):
