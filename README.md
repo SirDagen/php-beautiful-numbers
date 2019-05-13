@@ -23,7 +23,7 @@ The output looks like this (Deutsch, English):
 
 ```html
 98,4 µs   = 9.8437291615846E-5 [Sekunde]
-3,7 km   = 3657.3480260881 [Meter, Genauigkeit 2 Stellen]
+3,7 km   = 3657.3480260881 [Meter, Genauigkeit: 2 Stellen]
 695 KiB   = 711372 [Byte, Deutsch, Binärsystem]
 ```
 ```html
