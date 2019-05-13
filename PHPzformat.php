@@ -1,21 +1,21 @@
 <?php
 /*
- * PHPzformat - PHP format functions class.
+ * PHPzformat - PHP-beautiful-numbers class.
  * Version -see below-
  *
- * @see         https://github.com/SirDagen/php-format-functions
+ * @see         https://github.com/SirDagen/php-beautiful-numbers
  *
  * @author      SirDagen
  * @note        This program is licensed under the GNU General Public License v3.0
  *              Copyright and license notices must be preserved. See details at:
- *              https://github.com/SirDagen/php-format-functions/blob/master/LICENSE 
+ *              https://github.com/SirDagen/php-beautiful-numbers/blob/master/LICENSE 
  */
 
 namespace PHPzformat;
 
 /*
- * PHPzformat - PHP format functions class.
- * Version      1.0.6
+ * PHPzformat - PHP-beautiful-numbers class. (format functions)
+ * Version      1.0.8
  * @author      SirDagen
  */
 
@@ -25,21 +25,21 @@ class zformat {
 
     --- INIT
 
-    $zformat = new PHPzformat\zformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // if you state the language, the number format will be set automatically accordingly 
+    $bn = new PHPzformat\zformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // if you state the language, the number format will be set automatically accordingly 
 
 
     --- QUICK MANUAL
 
-    $zformat->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages // = 7.8 km (English) -OR- 7,8 km (German)
-    $zformat->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
-    $zformat->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
+    $bn->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages // = 7.8 km (English) -OR- 7,8 km (German)
+    $bn->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
+    $bn->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
     
-    $zformat->tnum( 9 ); // outputs numbers for running text (1..12 will be written-out) // = nine
-    $zformat->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
+    $bn->tnum( 9 ); // outputs numbers for running text (1..12 will be written-out) // = nine
+    $bn->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
     
     */
 
-    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // all presets can be overwriten when using the constructor // $zformat = new PHPzformat\zformat([ 'lang'=>'en' ); 
+    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // all presets can be overwriten when using the constructor // $bn = new PHPzformat\zformat([ 'lang'=>'en' ); 
 
     // SI and binary prefixes (binary prefixes below 0 make no sense '?')
     // https://en.wikipedia.org/wiki/International_System_of_Units
