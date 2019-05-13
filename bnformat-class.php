@@ -165,7 +165,7 @@ class bnformat {
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
        // >12 or fractional 
-        if (($pdp!=0) or (abs($val)>12) or ((abs($val)<0.99) and (abs($val)>0))) {
+        if (($pdp!=0) or (abs($val)>12) or ((abs($val)<=0.99) and (abs($val)>0))) {
             if ($pdp!=0) $rt=$this->out_val($val, $pdp, $md);
             else {
                 $pow=0; $a=$val;
