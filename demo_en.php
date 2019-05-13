@@ -38,7 +38,7 @@ echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // acc
 
 // tnum()
 
-echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (0..12 will be written-out)</pre></h3>";
+echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (0..12 will be written-out) - text number</pre></h3>";
 
 // outputs 0..12 written-out, all others as digits (as common practice in publications)
 echo "<p>"; 
@@ -57,14 +57,14 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
-// tchoice() - additionally use of 
+// tsyn() - additionally use of 
 
-echo "<br/><h3><pre>C. \"tchoice\": Distinguishes between singular und plural</pre></h3>";
+echo "<br/><h3><pre>C. \"tsyn\": Distinguishes between singular und plural - text syntax</pre></h3>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 3); 
-    echo $bn->tchoice($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square?<br/>"; 
+    echo $bn->tsyn($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square?<br/>"; 
 }
 echo "</p>"; 
 
