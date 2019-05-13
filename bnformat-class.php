@@ -197,14 +197,9 @@ class bnformat {
 function tchoice($val, $plural, $singular, $md=[]) {
     // chooses between the use of plural or singular
     $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
-    $aval=abs(round($val)); 
-    // >12
-    if ($aval>12) $rt=$plural;
-    // 0..12
-    else {
-        if ($aval==1) $rt=$singular;
-        else $rt=$plural;
-    }
+    $val=round($val); 
+    if (abs($val)==1) $rt=$singular;
+    else $rt=$plural;
     if (!empty($transform)) {
         switch($transform) {
             case 'ucfirst':
