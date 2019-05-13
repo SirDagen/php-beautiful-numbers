@@ -25,21 +25,21 @@ class zformat {
 
     --- INIT
 
-    $zformat = new PHPzformat\zformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]);
+    $zformat = new PHPzformat\zformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // if you state the language, the number format will be set automatically accordingly 
 
 
     --- QUICK MANUAL
 
-    $zformat->sinum(0.00050260131503576, 's'); // outputs numbers in easy to read SI format -> 503 µs
-    $zformat->sinum(404436, 'B', ['bin'=>true]); // works also with the binary system -> 395 KiB
-    $zformat->sinum(7833.6227931239, 'B', ['acc'=>2]); // works also with the binary system -> 7.8 km (English) OR 7,8 km (German)
-
-    $zformat->tnum(10); // outputs numbers for running text (1..12 will be written-out) -> ten
-    $zformat->tnum(42.4956, 2); // 2 decimal places -> 42.50 (this is basically the number_format function)
+    $zformat->sinum( 7833.6227931239, 'm', ['acc'=>2] ); // works with multiple languages // = 7.8 km (English) -OR- 7,8 km (German)
+    $zformat->sinum( 0.00050260131503576, 's' ); // outputs numbers in easy to read SI format // = 503 µs
+    $zformat->sinum( 404436, 'B', ['bin'=>true] ); // also works with the binary system // = 395 KiB
+    
+    $zformat->tnum( 9 ); // outputs numbers for running text (1..12 will be written-out) // = nine
+    $zformat->tnum( 42.4956, 2 ); // 2 decimal places // = 42.50 (this is basically the number_format function)
     
     */
 
-    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // presets - They can be overwriten with the constructor
+    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // all presets can be overwriten when using the constructor // $zformat = new PHPzformat\zformat([ 'lang'=>'en' ); 
 
     // SI and binary prefixes (binary prefixes below 0 make no sense '?')
     // https://en.wikipedia.org/wiki/International_System_of_Units
