@@ -55,7 +55,7 @@ I see 14 trees on the hill.
 I see a tree on the hill.
 ```
 
-Ann.: We use an array for the language part so that it is easier to implement *php-beautiful-numbers* in multi-language websites, e.g. tnum($val, $LANG['de']['baum-AKK']) for German accusative form, e.g. ["Bäume", "einen Baum"].
+*Ann.: We use an array for the language part so that it is easier to implement *php-beautiful-numbers* in multi-language websites, e.g. tnum($val, $LANG['de']['baum-AKK']) for German accusative form, e.g. ["Bäume", "einen Baum"].*
 
 ## 2.2. tsyn() – text syntax ##
 
