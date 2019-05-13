@@ -39,7 +39,7 @@ In newspapers and other running text it is common practice to note the numbers f
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
-echo "I see " . $bn->tnum( $val, 'trees', 'a tree' ) . " on the hill."; // with singular exception
+echo "I see " . $bn->tnum( $val, 'trees', 'a tree' ) . " on the hill."; // singular distinction
 ```
 
 The output looks like this (Deutsch, English):
