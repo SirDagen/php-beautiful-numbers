@@ -8,9 +8,9 @@ require('PHPzformat.php');
 
 
 // Create a new instance - English number format
-$bn = new PHPzformat\zformat( ['lang'=>'en'] );
+$bn = new PHPbn\zformat( ['lang'=>'en'] );
 
-echo "<br/><h1><b>php-beautiful-numbers (format = ".$bn->langname().")</b><br/></h1>"; 
+echo "<br/><h1>php-beautiful-numbers <b>(format = ".$bn->langname().")</b><br/></h1>"; 
 
 
 // sinum()
