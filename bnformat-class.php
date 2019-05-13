@@ -154,8 +154,8 @@ class bnformat {
     
         
     function tnum($val, $plural=false, $fullsingular=false, $md=[]) { 
-        // writes integer numbers 0..12 written-out. all others as round digits
-        // for running text -> tnum()
+        // writes integer numbers 0..12 written-out. all others as round digits (for running text)
+        // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree"(!) 
         $pdp=0; 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
@@ -195,6 +195,7 @@ class bnformat {
     }
 
 function tnumchoose($val, $plural, $singular, $md=[]) {
+    // chooses between the use of plural or singular
     $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
     $aval=abs(round($val)); 
     // >12
