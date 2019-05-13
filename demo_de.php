@@ -46,6 +46,22 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
+// tnum() - volle Nutzung
+echo "<p>"; 
+for ($i=0;$i<3;$i++) {
+    $val=mt_rand(0, 3); 
+    echo $bn->tnum($val, 'Bäume', 'einen Baum', ['transform'=>'ucfirst'])." sehe ich am Wegesrand stehen.<br/>"; 
+}
+echo "</p>"; 
+
+// tnumchoose() - zusätzliche Nutzung von 
+echo "<p>"; 
+for ($i=0;$i<3;$i++) {
+    $val=mt_rand(1, 4); 
+    echo $bn->tnumchoose($val, 'stehen', 'steht', ['transform'=>'ucfirst'])." ".$bn->tnum($val, 'Bäume', 'ein Baum')." auf dem Marktplatz.<br/>"; 
+}
+echo "</p>"; 
+
 
 
 echo "<br/>&nbsp;<br/>";
