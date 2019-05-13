@@ -123,6 +123,7 @@ class zformat {
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal digits) - preset = 3
         if ($bin===true) { $a=1024; $ptype=1; } else { $a=1000; $ptype=0; }
+        // $pow=floor(log($val, $a)); $val/=pow($a, $pow2); // dont know what way is faster in average
         $pow=0;
         if (!empty($val)) {
             while (abs($val)<1) { $val*=$a; $pow--; }
