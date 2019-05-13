@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.10
+ * Version      1.0.11
  * @author      SirDagen
  */
 
@@ -37,7 +37,7 @@ class bnformat {
     $bn->tnum( 9 ); // outputs numbers for running text (0..12 will be written-out) // = nine
     $bn->tnum( 5, 'Bäume', 'einem Baum' ); // you can also make tnum choose between the singular and plural word
     
-    $bn->tnumchoose( 5, 'stehen', 'steht' ); // if you use tnum you might also need tnumchoose to transform the verb of the sentence into singular
+    $bn->tnumchoice( 5, 'stehen', 'steht' ); // if you use tnum you might also need tnumchoice to transform the verb of the sentence into singular
     
     */
 
@@ -194,7 +194,7 @@ class bnformat {
         return $rt;
     }
 
-function tnumchoose($val, $plural, $singular, $md=[]) {
+function tnumchoice($val, $plural, $singular, $md=[]) {
     // chooses between the use of plural or singular
     $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
     $aval=abs(round($val)); 
