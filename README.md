@@ -5,7 +5,7 @@
 PHP-beautiful-numbers works with multiple languages. When you call the constructor you can state the tongue you are going to use (as well as other options like the accuracy for example, see manual in class file).  
 
 ```php
-$bn = new PHPzformat\zformat([ 'lang'=>'de' ]); // choose German output
+$bn = new PHPbn\zformat([ 'lang'=>'de' ]); // choose German output
 ```
 
 
