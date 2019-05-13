@@ -57,7 +57,7 @@ There are 14 trees on the hill.
 
 ## 3. tnumchoose() ##
 
-If you want the perfect use of numbers in running text, you might additionally need tnumchoose() to distinguish between singular and plural for the verb of the sentence (e.g. "stands" vs. "stand"). 
+If you want the perfect use of numbers in running text, you might additionally need tnumchoose() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
 ```php
 echo $bn->tnumchoose(1, 'do', 'does', ['transform'=>'ucfirst'])." "
