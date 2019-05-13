@@ -1,4 +1,4 @@
-useuse# php-beautiful-numbers
+# php-beautiful-numbers
 
 ## 0. __construct ##
 
