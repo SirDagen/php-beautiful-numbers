@@ -58,7 +58,7 @@ I see two trees on the hill.
 
 ## 2.2. tchoice() – text choice ##
 
-If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "stand" vs. "stands"). 
+If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. it "stands" vs. they "stand"). 
 
 ```php
 echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // e.g. Three trees 
