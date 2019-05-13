@@ -11,7 +11,7 @@
  *              https://github.com/SirDagen/php-beautiful-numbers/blob/master/LICENSE 
  */
 
-namespace PHPzformat;
+namespace PHPbn;
 
 /*
  * PHPzformat - PHP-beautiful-numbers class. (format functions)
