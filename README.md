@@ -61,8 +61,8 @@ I see a tree on the hill.
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. it "stands" vs. they "stand"). 
 
 ```php
-echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // e.g. Three trees 
-    . $bn->tchoice( $val, 'stand', 'stands') // e.g. stand
+echo $bn->tnum( $val, 'trees', 'a tree', ['transform'=>'ucfirst']) . " " // uppercase first letter 
+    . $bn->tchoice( $val, 'stand', 'stands') // select correct syntax
     . " in the market square.";
 
 ```
