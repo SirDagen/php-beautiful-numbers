@@ -15,7 +15,7 @@ echo "<br/><h1>php-beautiful-numbers <b>(Format = ".$bn->langname().")</b><br/><
 
 // sinum()
 
-echo "<br/><h3><pre>A. \"sinum\": Gibt Zahlen im einfach zu lesenden SI-Format aus</pre></h3>";
+echo "<br/><h3><pre>A. sinum() &ndash; Gibt Zahlen im einfach zu lesenden SI-Format aus</pre></h3>";
 
 $val=mt_rand()/mt_getrandmax(); $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>"; 
@@ -38,7 +38,7 @@ echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // Gen
 
 // tnum()
 
-echo "<br/><h3><pre>B. \"tnum\": Gibt Zahlen im Fließtext aus (0..12 werden ausgeschrieben) - text number</pre></h3>";
+echo "<br/><h3><pre>B. tnum() &ndash; Gibt Zahlen im Fließtext aus (0..12 werden ausgeschrieben) - text number</pre></h3>";
 
 // Zahlen 0..12 werden ausgeschrieben, alle anderen als Zahlen ausgegeben (wie es in Publikationen üblich ist)
 echo "<p>"; 
@@ -79,7 +79,7 @@ echo "</p>";
 
 // tsyn() - zusätzliche Nutzung von 
 
-echo "<br/><h3><pre>C. \"tsyn\": Unterscheidet zwischen Singular und Plural - text syntax</pre></h3>";
+echo "<br/><h3><pre>C. tsyn() &ndash; Unterscheidet zwischen Singular und Plural - text syntax</pre></h3>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) { 
