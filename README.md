@@ -47,12 +47,12 @@ The output looks like this (Deutsch, English):
 ```html
 Ich sehe neun Bäume auf dem Hügel.
 Ich sehe 14 Bäume auf dem Hügel.
-Ich sehe zwei Bäume auf dem Hügel.
+Ich sehe einen Baum auf dem Hügel.
 ``` 
 ```html
 I see nine trees on the hill.
 I see 14 trees on the hill.
-I see two trees on the hill.
+I see a tree on the hill.
 ```
 
 
