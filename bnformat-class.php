@@ -196,7 +196,7 @@ class bnformat {
     }
 
 function tsyn($val, $syntax, $md=[]) { // text syntax // $syntax = array('plural', 'singular')
-    // chooses between the use of syntax[0] or singular
+    // chooses between the use of plural or singular
     if (!is_array($syntax)) echo "***?ERROR-1 tsyn()*** ";
     if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tsyn()*** ";
     $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
