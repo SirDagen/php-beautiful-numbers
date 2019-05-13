@@ -38,9 +38,9 @@ The output looks like this (Deutsch, English):
 In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. 
 
 ```php
-echo "There are ".$bn->tnum(9)." trees on the hill.";
-echo "There are ".$bn->tnum(14)." trees on the hill.";
-echo "Ich sehe ".$bn->tnum(2, 'Bäume', 'einen Baum')." auf dem Hügel."; // singular & plural    
+echo "There are " . $bn->tnum(9) . " trees on the hill.";
+echo "There are " . $bn->tnum(14) . " trees on the hill.";
+echo "Ich sehe " . $bn->tnum(2, 'Bäume', 'einen Baum') . " auf dem Hügel."; // singular & plural    
 ```
 
 The output looks like this (Deutsch, English):
@@ -62,13 +62,15 @@ I see two trees on the hill.
 If you want the perfect use of numbers in running text, you might additionally need tchoice() to distinguish between singular and plural for the verb of the sentence (e.g. "do" vs. "does"). 
 
 ```php
-echo $bn->tchoice(1, 'Stand ', 'Stands ').$bn->tnum(1, 'trees', 'a tree')
-    ." stand in the market square.";
-echo $bn->tchoice(2, 'Stand ', 'Stands ').$bn->tnum(2, 'trees', 'a tree')
-    ." stand in the market square.";
+echo $bn->tchoice(1, 'Stand ', 'Stands ') 
+    . $bn->tnum(1, 'trees', 'a tree')
+    . " stand in the market square.";
+echo $bn->tchoice(2, 'Stand ', 'Stands ') 
+    . $bn->tnum(2, 'trees', 'a tree')
+    . " stand in the market square.";
 echo $bn->tnum(3, 'trees ', 'a tree ', ['transform'=>'ucfirst'])
-    .$bn->tchoice(3, 'stand', 'stands')
-    ." in the market square.";
+    . $bn->tchoice(3, 'stand', 'stands')
+    . " in the market square.";
 
 ```
 
