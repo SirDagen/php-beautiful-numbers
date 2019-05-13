@@ -58,12 +58,12 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
-echo "<p><b>Also rounds big numbers to given accuracy (= 2 digits):</b></p>";
+echo "<p><b>Also rounds big numbers to given accuracy (2 digits):</b></p>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(100, 2000000); 
-    echo "ca. ".$bn->tnum($val, ['homes', 'one home'], ['acc'=>2])." &nbsp;(= {$val} homes)<br/>"; 
+    echo "ca. ".$bn->tnum($val, ['homes', 'one home'])." &nbsp;(= {$val} homes)<br/>"; 
 }
 echo "</p>"; 
 
@@ -71,7 +71,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 2000000)/90000000;  
-    echo "ca. ".$bn->tnum($val, ['homes', 'one home'], ['acc'=>2])." &nbsp;(= {$val} homes)<br/>"; 
+    echo "ca. ".$bn->tnum($val, ['homes', 'one home'])." &nbsp;(= {$val} homes)<br/>"; 
 }
 echo "</p>"; 
 */
