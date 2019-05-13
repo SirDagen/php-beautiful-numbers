@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.14
+ * Version      1.0.15
  * @author      Gordon Axmann
  */
 
@@ -112,7 +112,7 @@ class bnformat {
             while ($q!=floor($q)) { $q*=10; $pdp++; }
         }
         if ($pdp<0) { // force rounding when there are more digits before the decimal point than the given accuracy
-            $a=pow(10, -(int)$pdp); $val=round($val/$a)*$a; 
+            $base=pow(10, -(int)$pdp); $val=round($val/$base)*$base; 
         }
         return number_format($val, $pdp, $this->presets['numberformat'][0], $this->presets['numberformat'][1]); 
     }
@@ -122,14 +122,14 @@ class bnformat {
         // outs values with SI: "3240g" -> "3.24 kg"
         // https://en.wikipedia.org/wiki/International_System_of_Units
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
-        $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal digits) - preset = 3
-        if ($bin===true) { $a=1024; $ptype=1; } else { $a=1000; $ptype=0; }
-        // $pow=floor(log($val, $a)); $val/=pow($a, $pow2); // dont know what way is faster in average
+        $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
+        if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
+        // $pow=floor(log($val, $base)); $val/=pow($base, $pow2); // dont know what way is faster in average
         $pow=0;
         if (!empty($val)) {
-            while (abs($val)<1) { $val*=$a; $pow--; }
-            while (abs($val)>$a) { $val/=$a; $pow++; }
+            while (abs($val)<1) { $val*=$base; $pow--; }
+            while (abs($val)>$base) { $val/=$base; $pow++; }
         }
         $acc-=strlen(floor(abs($val))); //if ($acc<0) $acc=0; // only positive values supported right now
         $prefix=$this->siprefix[$pow][$ptype];
@@ -158,12 +158,24 @@ class bnformat {
         // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree" (!) 
         if (($syntax!==false) and !is_array($syntax)) echo "***?ERROR-1 tnum()*** ";
         if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tnum()*** ";
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal digits) - preset = 3
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
-        // >12 or fractional 
-        if (($pdp!=0) or (abs($val)>12)) {
-            $rt=$this->out_val($val, $pdp, $lang);
+        $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
+        if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
+       // >12 or fractional 
+        if (($pdp!=0) or (abs($val)>12) or ((abs($val)<0.99) and (abs($val)>0))) {
+            if ($pdp!=0) $rt=$this->out_val($val, $pdp, $md);
+            else {
+                $pow=0; $a=$val;
+                if (!empty($val)) {
+                    while (abs($a)<1) { $a*=$base; $pow--; }
+                }
+                //$pow2=floor(log($val, 10)); echo "{$pow2} ".(3*$pow)." "; // doesnt work 
+                $acc-=strlen(floor(abs($a)))+3*$pow; //if ($acc<0) $acc=0; // only positive values supported right now
+                $rt=$this->out_val($val, $acc, $md);
+            }
             if (is_array($syntax)) $rt.=' '.$syntax[0]; 
         }
         // 0..12
