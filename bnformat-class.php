@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.15
+ * Version      1.0.16
  * @author      Gordon Axmann
  */
 
@@ -122,7 +122,7 @@ class bnformat {
         // outs values with SI: "3240g" -> "3.24 kg"
         // https://en.wikipedia.org/wiki/International_System_of_Units
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
-        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal digits) - preset = 3
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (= decimal digits) - preset = 3
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
         // $pow=floor(log($val, $base)); $val/=pow($base, $pow2); // dont know what way is faster in average
@@ -158,7 +158,7 @@ class bnformat {
         // you can use it to distinguish between singular and plural. PLEASE NOTE, that you have to offer the FULL SINGULAR, e.g. "one tree" or "a tree" (!) 
         if (($syntax!==false) and !is_array($syntax)) echo "***?ERROR-1 tnum()*** ";
         if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tnum()*** ";
-        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (decimal digits) - preset = 3
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=2; //$this->presets['acc']; // accuracy (= decimal digits) 
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
         $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
@@ -171,8 +171,9 @@ class bnformat {
                 if (!empty($val)) {
                     while (abs($a)<1) { $a*=$base; $pow--; }
                 }
-                //$pow2=floor(log($val, 10)); // doesnt work 
+                //$pow2=floor(log($val, 10)); // doesnt work
                 $acc-=strlen(floor(abs($a)))+3*$pow; //if ($acc<0) $acc=0; // only positive values supported right now
+                if (($acc>0) and (abs($val)>=10)) $acc=0; // dont show e.g. "15.0 trees"
                 $rt=$this->out_val($val, $acc, $md);
             }
             if (is_array($syntax)) $rt.=' '.$syntax[0]; 
