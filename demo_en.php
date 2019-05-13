@@ -14,6 +14,7 @@ echo "<br/><h1>php-beautiful-numbers <b>(format = ".$bn->langname().")</b><br/><
 
 
 // sinum()
+
 echo "<br/><h3><pre>A. \"sinum\": Outputs numbers in easy readable SI format</pre></h3>";
 
 $val=mt_rand()/mt_getrandmax(); $u='s'; 
@@ -36,6 +37,7 @@ echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // acc
 
 
 // tnum()
+
 echo "<br/><h3><pre>B. \"tnum\": Outputs numbers inside running text (0..12 will be written-out)</pre></h3>";
 
 // outputs 0..12 written-out, all others as digits (as common practice in publications)
@@ -47,6 +49,7 @@ for ($i=0;$i<3;$i++) {
 echo "</p>"; 
 
 // tnum() - full use
+
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(0, 3); 
@@ -55,10 +58,13 @@ for ($i=0;$i<3;$i++) {
 echo "</p>"; 
 
 // tnumchoice() - additionally use of 
+
+echo "<br/><h3><pre>C. \"tnumchoice\": Distinguishes between singular und plural</pre></h3>";
+
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
-    $val=mt_rand(1, 4); 
-    echo $bn->tnumchoice($val, 'do', 'does', ['transform'=>'ucfirst'])." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.<br/>"; 
+    $val=mt_rand(1, 3); 
+    echo $bn->tnumchoice($val, 'Do', 'Does')." ".$bn->tnum($val, 'trees', 'a tree')." stand in the market square.<br/>"; 
 }
 echo "</p>"; 
 
