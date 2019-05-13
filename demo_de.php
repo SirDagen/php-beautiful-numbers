@@ -54,11 +54,11 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
-// tnumchoose() - zusätzliche Nutzung von 
+// tnumchoice() - zusätzliche Nutzung von 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 4); 
-    echo $bn->tnumchoose($val, 'stehen', 'steht', ['transform'=>'ucfirst'])." ".$bn->tnum($val, 'Bäume', 'ein Baum')." auf dem Marktplatz.<br/>"; 
+    echo $bn->tnumchoice($val, 'stehen', 'steht', ['transform'=>'ucfirst'])." ".$bn->tnum($val, 'Bäume', 'ein Baum')." auf dem Marktplatz.<br/>"; 
 }
 echo "</p>"; 
 
