@@ -28,8 +28,8 @@ The output looks like this (Deutsch, English):
 ```
 ```html
 98.4 µs   = 9.8437291615846E-5 [second, English format]
-3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
-695 KiB   = 711372 [byte, use binary conversion]
+3.7 km   = 3657.3480260881 [meter, accuracy: 2 digits]
+695 KiB   = 711372 [byte, binary conversion]
 ```
 
 
@@ -39,7 +39,7 @@ In newspapers and other running text it is common practice to note the numbers f
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
-echo "I see " . $bn->tnum( $val, 'trees', 'a tree' ) . " on the hill."; // singular distinction
+echo "Ich sehe " . $bn->tnum( $val, 'Bäume', 'einen Baum' ) . " auf dem Hügel."; // singular distinction
 ```
 
 The output looks like this (Deutsch, English):
