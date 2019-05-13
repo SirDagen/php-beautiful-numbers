@@ -48,6 +48,7 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
+
 // tnum() - full use
 
 echo "<p>"; 
@@ -56,6 +57,25 @@ for ($i=0;$i<3;$i++) {
     echo $bn->tnum($val, ['trees', 'one tree'], ['transform'=>'ucfirst'])." I see standing at the wayside.<br/>"; 
 }
 echo "</p>"; 
+
+echo "<p><b>Also rounds big numbers to given accuracy (= 2 digits):</b></p>";
+
+echo "<p>"; 
+for ($i=0;$i<3;$i++) {
+    $val=mt_rand(100, 2000000); 
+    echo "ca. ".$bn->tnum($val, ['homes', 'one home'], ['acc'=>2])." &nbsp;(= {$val} homes)<br/>"; 
+}
+echo "</p>"; 
+
+/*
+echo "<p>"; 
+for ($i=0;$i<3;$i++) {
+    $val=mt_rand(1, 2000000)/90000000;  
+    echo "ca. ".$bn->tnum($val, ['homes', 'one home'], ['acc'=>2])." &nbsp;(= {$val} homes)<br/>"; 
+}
+echo "</p>"; 
+*/
+
 
 // tsyn() - additionally use of 
 
