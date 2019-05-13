@@ -22,14 +22,14 @@ echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary conversion (instead
 The output looks like this (Deutsch, English):
 
 ```html
-98,4 µs   = 9.8437291615846E-5 [Sekunde]
+98,4 µs   = 9.8437291615846E-5 [Sekunde, deutsches Format]
 3,7 km   = 3657.3480260881 [Meter, Genauigkeit: 2 Stellen]
-695 KiB   = 711372 [Byte, Deutsch, Binärsystem]
+695 KiB   = 711372 [Byte, Binärsystem]
 ```
 ```html
-98.4 µs   = 9.8437291615846E-5 [second]
+98.4 µs   = 9.8437291615846E-5 [second, English format]
 3.7 km   = 3657.3480260881 [meter, acc = 2 digits]
-695 KiB   = 711372 [byte, English, use binary conversion]
+695 KiB   = 711372 [byte, use binary conversion]
 ```
 
 
