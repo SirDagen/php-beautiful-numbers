@@ -62,9 +62,9 @@ If you want the perfect use of numbers in running text, you might additionally n
 
 ```php
 echo $bn->tchoice( $val, 'Stand ', 'Stands ' ) // choose verb
-    . $bn->tnum( $val, 'trees', 'a tree' ) // tnum
+    . $bn->tnum( $val, 'trees', 'a tree' ) // tnum()
     . " in the market square.";
-echo $bn->tnum( $val, 'trees ', 'a tree ', ['transform'=>'ucfirst']) // tnum + transform 
+echo $bn->tnum( $val, 'trees ', 'a tree ', ['transform'=>'ucfirst']) // tnum() + transform 
     . $bn->tchoice( $val, 'stand', 'stands') // choose verb
     . " in the market square.";
 
