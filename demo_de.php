@@ -58,7 +58,7 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
-echo "<p><b>Und rundet auf vorgegebene Genauigkeit (= 2 Stellen):</b></p>";
+echo "<p><b>Und rundet auf angegebene Genauigkeit (= 2 Stellen):</b></p>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
