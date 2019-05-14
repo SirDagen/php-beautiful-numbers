@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.17
+ * Version      1.0.18
  * @author      Gordon Axmann
  */
 
@@ -111,7 +111,7 @@ class bnformat {
 
     function out_val($val, $pdp=0, $md=[]) { // post decimal places (99 = all)
         // outputs numbers in local number format (with stated decimal places) 
-        // it is a copy of number_format but with better rounding abilities
+        // it is a copy of number_format but with better rounding
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         if ($val===false) {
             if ($tx) return '-';
@@ -122,7 +122,8 @@ class bnformat {
             while ($q!=floor($q)) { $q*=10; $pdp++; }
         }
         if ($pdp<0) { // force rounding when there are more digits before the decimal point than the given accuracy
-            $base=pow(10, -(int)$pdp); $val=round($val/$base)*$base; 
+            $val=round($val, $pdp); 
+            // $base=pow(10, -(int)$pdp); $val=round($val/$base)*$base; // older version 
         }
         return number_format($val, $pdp, $this->presets['numberformat'][0], $this->presets['numberformat'][1]); 
     }
