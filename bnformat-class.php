@@ -41,7 +41,8 @@ class bnformat {
     
     */
 
-    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; // all presets can be overwriten when using the constructor // $bn = new bnformat\bnformat([ 'lang'=>'en' ); 
+    // all presets can be overwriten when using the constructor // $bn = new bnformat\bnformat([ 'lang'=>'en' ); 
+    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; 
 
     // SI and binary prefixes (binary prefixes below 0 make no sense '?')
     // https://en.wikipedia.org/wiki/International_System_of_Units
@@ -69,17 +70,14 @@ class bnformat {
     
     // numbers 0..12 are usually written-out in publications/running text 
     // local number format: https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use
-    // if you need a different number format you can specify it in the __constructor via: [ 'lang'=>'en', 'numberformat'=> ['·', ' '] ]
+    // if you need a different number format you can specify it in the __constructor via: 
+    // [ 'lang'=>'en', 'numberformat'=> ['·', ' '] ] // en-SI
+    // [ 'lang'=>'de', 'numberformat'=> ['.', "'"] ] // de-CH
     var $numwords=array(
         'de'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
                 'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
                 // std number format for this language, can be overwritten in preset['numberformat'] 
                 'numberformat'=> [',', '.'], // dec_point, thousands_sep 
-            ],
-        'de-CH'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
-            'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
-            // std number format for this language, can be overwritten in preset['numberformat'] 
-            'numberformat'=> ['.', "'"], // dec_point, thousands_sep
             ],
         'en'=> [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
                 'ten', 'eleven', 'twelve', 'minusword'=>'minus', 'langname'=>'English', 
