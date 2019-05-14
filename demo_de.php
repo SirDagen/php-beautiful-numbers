@@ -17,10 +17,10 @@ echo "<br/><h1>php-beautiful-numbers <b>(Format = ".$bn->langname().")</b><br/><
 
 echo "<br/><h3><pre>A. sinum() &ndash; Gibt Zahlen im einfach zu lesenden SI-Format aus</pre></h3>";
 
-$val=mt_rand()/mt_getrandmax(); $u='s'; 
+$val=mt_rand()/mt_getrandmax()/5; $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>"; 
 
-$val=mt_rand()/mt_getrandmax()/1000; $u='s'; 
+$val=mt_rand()/mt_getrandmax()/2000; $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>";
 
 $val=mt_rand()/mt_getrandmax()/10000000; $u='s'; 
@@ -84,7 +84,7 @@ echo "<br/><h3><pre>C. tsyn() &ndash; Unterscheidet zwischen Singular und Plural
 echo "<p>"; 
 for ($i=0;$i<3;$i++) { 
     $val=mt_rand(1, 3); 
-    echo $bn->tsyn($val, ['Stehen', 'Steht'])." ".$bn->tnum($val, ['Bäume', 'ein Baum'])." auf dem Marktplatz.<br/>"; 
+    echo "Es ".$bn->tsyn($val, ['stehen', 'steht'])." ".$bn->tnum($val, ['Bäume', 'ein Baum'])." auf dem Marktplatz.<br/>"; 
 }
 echo "</p>"; 
 
