@@ -17,10 +17,10 @@ echo "<br/><h1>php-beautiful-numbers <b>(format = ".$bn->langname().")</b><br/><
 
 echo "<br/><h3><pre>A. sinum() &ndash; Outputs numbers in easy readable SI format</pre></h3>";
 
-$val=mt_rand()/mt_getrandmax(); $u='s'; 
+$val=mt_rand()/mt_getrandmax()/5; $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>"; 
 
-$val=mt_rand()/mt_getrandmax()/1000; $u='s'; 
+$val=mt_rand()/mt_getrandmax()/2000; $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>";
 
 $val=mt_rand()/mt_getrandmax()/10000000; $u='s'; 
