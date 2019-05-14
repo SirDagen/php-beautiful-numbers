@@ -2,7 +2,7 @@
 
 ## 0. __construct ##
 
-*php-beautiful-numbers* is a number format tool that works with different languages. When you call the constructor, you can state the tongue you want to use as well as other options like the accuracy e.g. (see manual in class file).  
+*php-beautiful-numbers* is a number format tool that creates pretty numbers in a human readable format. It also supports different languages and formats. Thus when you call the constructor, you can state the tongue you want to use it in as well as further options like accuracy (see quick manual inside class file).  
 
 ```php
 $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German 
