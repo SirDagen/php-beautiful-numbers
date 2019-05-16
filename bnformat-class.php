@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.18
+ * Version      1.0.19
  * @author      Gordon Axmann
  */
 
@@ -47,14 +47,14 @@ class bnformat {
     // SI and binary prefixes (binary prefixes below 0 make no sense '?')
     // https://en.wikipedia.org/wiki/International_System_of_Units
     var $siprefix=array( // SI decimal, IEC binary
-        -8=>['y', '??'], // yocto
-        -7=>['z', '??'], // zepto
-        -6=>['a', '??'], // atto
-        -5=>['f', '??'], // femto
-        -4=>['p', '??'], // pico
-        -3=>['n', '??'], // nano
-        -2=>['µ', '??'], // micro
-        -1=>['m', '??'], // milli
+        -8=>['y', '?'], // yocto
+        -7=>['z', '?'], // zepto
+        -6=>['a', '?'], // atto
+        -5=>['f', '?'], // femto
+        -4=>['p', '?'], // pico
+        -3=>['n', '?'], // nano
+        -2=>['µ', '?'], // micro
+        -1=>['m', '?'], // milli
          0=>['', ''],
          1=>['k', 'Ki'], // kilo, ("Ki") <- big K, sic(!)
          2=>['M', 'Mi'], // mega
@@ -69,10 +69,11 @@ class bnformat {
         
     
     // numbers 0..12 are usually written-out in publications/running text 
-    // local number format: https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use
+    // the language of the constructor (see INIT) also sets the local number format
     // if you need a different number format you can specify it in the __constructor via: 
-    // [ 'lang'=>'en', 'numberformat'=> ['·', ' '] ] // en-SI
-    // [ 'lang'=>'de', 'numberformat'=> ['.', "'"] ] // de-CH
+    // [ 'lang'=>'en', 'numberformat'=> ['.', ' '] ] // en-SI
+    // or by using the subvariants of the language arrays, like "de-CH", which will overwrite the standard 'numberformat' entry set by 'lang'
+    // [ 'lang'=>'de-CH' ] // de-CH
     var $numwords=array(
         'de'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
                 'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
@@ -96,11 +97,31 @@ class bnformat {
         ],
     );
 
-    function __construct($presets=false) { // $presets=array() 
-        // overwrite presets (if stated)
+    // local number formats that differ from the above $numwords array
+    // can be set by using the extended language code, e.g. "en-SI"
+    // local number format: https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use
+    var $numformat=array(
+        // type => [ dec_point, thousands_sep ]
+        'en-SI'=> ['.', ' '], // English-SI style (+ official English-Canada)
+        'en-MT'=> ['·', ' '], // English-Malta  
+        'de-LI'=> ['.', "'"], // Deutsch-Liechtenstein  
+    );
+    
+    function __construct($presets=false) { // $presets=array() -- INIT
+        // overwrite the standard presets (if stated), e.g.
+        // [ 'lang'=>'en', 'numberformat'=> ['.', ' '], 'acc'=>4 ]
+        $numformat=false;
+        if (isset($presets['lang'])) { 
+            $lgar=explode('-', $presets['lang']);
+            if (isset($lgar[1]) and !empty($lgar[1]) and isset($this->numformat[$presets['lang']])) $numformat=$this->numformat[$presets['lang']];
+            $presets['lang']=$lgar[0]; // only take first part of 'lang', e.g. "en" instead "en-SI" 
+        }
         if (is_array($presets)) foreach ($presets as $k0=>$v0) $this->presets[$k0] = $v0; 
         // if numberformat is not explicitly set (presets['numberformat']), get numberformat from language (presets['lang']) 
-        if (!is_array($presets['numberformat'])) $this->presets['numberformat']=$this->numwords[$this->presets['lang']]['numberformat'];
+        if (!is_array($presets['numberformat'])) {
+            if (!empty($numformat)) $this->presets['numberformat']=$numformat; // you can set the number format through 'lang' parameter, e.g. "en-SI"
+            else $this->presets['numberformat']=$this->numwords[$this->presets['lang']]['numberformat'];
+        }
     }
 
 
