@@ -34,18 +34,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Parameters in tsyn() changed to arrays (for easier use with multi-language sites, language arrays)
 
 
-## [1.0.13] - 2019-05-13
-### Changed
-- Function name tchoice() changed to tsyn()
-
-
-## [1.0.9] - 2019-05-13
-### Changed
-- Filename changed to bnformat-class.php (to adapt to the latest heavy changes). Sorry for any inconvenience. This class is still under heavy development to polish it for publication
-
-
-
-
 
 
 
