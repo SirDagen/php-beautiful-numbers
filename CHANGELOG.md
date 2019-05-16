@@ -30,8 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.14] - 2019-05-13
 ### Changed
-- Parameters in tnum() changed to arrays (for easier use with multi-language sites, language arrays)
-- Parameters in tsyn() changed to arrays (for easier use with multi-language sites, language arrays)
+- Parameters in tnum() and tsyn() changed to arrays (for easier use with multi-language sites)
 
 
 
