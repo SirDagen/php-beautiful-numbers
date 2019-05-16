@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.19] - 2019-05-17
 ### Added
-- Array subset of local language formats added (accessable via "en-SI" instead of "en")
+- Subset of local language formats array added (accessable via "en-SI" instead of "en")
 
 
 ## [1.0.18] - 2019-05-14
@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Spanish language added ("es")
 
 ### Changed
-- Display error in tnum() fixed within 12<$val<100 range ("19.0" instead of "19")
+- Error in tnum() within 12<$val<100 fixed (outputted "19.0" instead of "19")
 
 
 ## [1.0.15] - 2019-05-13
@@ -39,12 +39,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.13] - 2019-05-13
 ### Changed
-- Function name tchoice() changed to tsyn(). Sorry for any inconvenience. This class is still under heavy development to polish it for publication
+- Function name tchoice() changed to tsyn()
 
 
 ## [1.0.9] - 2019-05-13
 ### Changed
-- Filename of class changed to bnformat-class.php (to adapt to the latest heavy changes)
+- Filename changed to bnformat-class.php (to adapt to the latest heavy changes). Sorry for any inconvenience. This class is still under heavy development to polish it for publication
+
 
 
 
