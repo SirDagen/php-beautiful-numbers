@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.19
+ * Version      1.0.20
  * @author      Gordon Axmann
  */
 
@@ -153,7 +153,7 @@ class bnformat {
     }
  
 
-    function sinum($val, $unit='B', $md=[]) { // SI number
+    function sinum($val, $unit='', $md=[]) { // SI number output
         // outs values with SI: "3240g" -> "3.24 kg"
         // https://en.wikipedia.org/wiki/International_System_of_Units
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
