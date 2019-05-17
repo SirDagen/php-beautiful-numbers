@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## 1.0.20 - 2019-05-17
-### Added
+### Changed
 - Changed default unit value in sinum() to empty string
 
 
