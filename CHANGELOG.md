@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.15] - 2019-05-13
 ### Added
-- Big numbers rounding in tnum() added (120.000 instead of 119.289)
+- Rounding of big numbers ($val>100) in tnum() added (120.000 instead of 119.289)
 
 
 ## [1.0.14] - 2019-05-13
