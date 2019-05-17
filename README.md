@@ -17,6 +17,7 @@ Not only in the physics department it is good practice to use the [SI format](ht
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // all options as in "__construct"
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes 
 echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
+echo $bn->sinum( 73672048 );  
 ```
 
 The output looks like this (Deutsch, English):
@@ -25,11 +26,15 @@ The output looks like this (Deutsch, English):
 98,4 µs   = 9.8437291615846E-5 [Sekunde, deutsches Format]
 695 KiB   = 711372 [Byte, Binärprefixe]
 3,7 km   = 3657.3480260881 [Meter, Genauigkeit: 2 Stellen]
+420 k  (= 419532)
+73,7 M  (= 73672048)
 ```
 ```html
 98.4 µs   = 9.8437291615846E-5 [second, English format]
 695 KiB   = 711372 [byte, binary prefixes]
 3.7 km   = 3657.3480260881 [meter, accuracy: 2 digits]
+420 k  (= 419532)
+73.7 M  (= 73672048)
 ```
 
 
