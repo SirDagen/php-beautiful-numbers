@@ -26,14 +26,14 @@ The output looks like this (Deutsch, English):
 98,4 µs   = 9.8437291615846E-5 [Sekunde, deutsches Format]
 695 KiB   = 711372 [Byte, Binärprefixe]
 3,7 km   = 3657.3480260881 [Meter, Genauigkeit: 2 Stellen]
-420 k   = 419532
+420 k   = 419532 [korrekt gerundet]
 73,7 M   = 73672048
 ```
 ```html
 98.4 µs   = 9.8437291615846E-5 [second, English format]
 695 KiB   = 711372 [byte, binary prefixes]
 3.7 km   = 3657.3480260881 [meter, accuracy: 2 digits]
-420 k   = 419532
+420 k   = 419532 [properly rounded]
 73.7 M   = 73672048
 ```
 
