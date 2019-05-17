@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.0.19 - 2019-05-17
 ### Added
-- Subset of local language formats array added (accessable via "en-SI" instead of "en")
+- Subsets for local language format array added (accessable via "en-SI" instead of "en")
 
 
 ## 1.0.18 - 2019-05-14
