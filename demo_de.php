@@ -35,6 +35,17 @@ echo "<p>".$bn->sinum($val, $u, ['bin'=>true])." &nbsp;(= {$val} {$u})</p>";
 $val=mt_rand()/mt_getrandmax()*9000; $u='m'; 
 echo "<p>".$bn->sinum($val, $u, ['acc'=>2])." &nbsp;(= {$val} {$u})</p>"; // Genauigkeit = 2 Stellen
 
+echo "<p><br/><b>kilo, Mega, Giga, Tera, ...</b></p>";
+
+$val=round(mt_rand()/mt_getrandmax()*1000000); 
+echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>"; 
+
+$val=round(mt_rand()/mt_getrandmax()*90000000); 
+echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>"; 
+
+$val=round(mt_rand()/mt_getrandmax()*80000000000+1000000000);  
+echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>"; 
+
 
 // tnum()
 
