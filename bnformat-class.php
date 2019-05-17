@@ -25,7 +25,8 @@ class bnformat {
 
     --- INIT
 
-    $bn = new bnformat\bnformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // if you state the language, the number format will be set automatically accordingly 
+    $bn = new bnformat\bnformat([ 'lang'=>'en', 'txt'=>false, 'acc'=>3, 'numberformat'=> ['.', ','] ]); // (if you state the language, the number format will be set automatically accordingly) 
+    $bn = new bnformat\bnformat([ 'lang'=>'en-SI' ]); // you can also set a sub type of the local language format
 
 
     --- QUICK MANUAL
@@ -70,35 +71,36 @@ class bnformat {
     
     // numbers 0..12 are usually written-out in publications/running text 
     // the language of the constructor (see INIT) also sets the local number format
-    // if you need a different number format you can specify it in the __constructor via: 
-    // [ 'lang'=>'en', 'numberformat'=> ['.', ' '] ] // en-SI
+    // [ 'lang'=>'de' ] 
     // or by using the subvariants of the language arrays, like "de-CH", which will overwrite the standard 'numberformat' entry set by 'lang'
-    // [ 'lang'=>'de-CH' ] // de-CH
+    // [ 'lang'=>'de-CH' ] // set language to de, language format to the subset "de-CH"
     var $numwords=array(
         'de'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
                 'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
-                // std number format for this language, can be overwritten in preset['numberformat'] 
+                // std number format for this language
                 'numberformat'=> [',', '.'], // dec_point, thousands_sep 
             ],
         'en'=> [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
                 'ten', 'eleven', 'twelve', 'minusword'=>'minus', 'langname'=>'English', 
-                // std number format for this language, can be overwritten in preset['numberformat'] 
+                // std number format for this language
                 'numberformat'=> ['.', ','], // dec_point, thousands_sep 
             ],
         'fr'=> [ 'zéro', 'un/une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf',
                 'dix', 'onze', 'douze', 'minusword'=>'moins', 'langname'=>'français', 
-                // std number format for this language, can be overwritten in preset['numberformat'] 
+                // std number format for this language
                 'numberformat'=> [',', ' '], // dec_point, thousands_sep 
             ],
         'es'=> [ 'cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve',
-            'diez', 'once', 'doce', 'minusword'=>'menos', 'langname'=>'español', 
-            // std number format for this language, can be overwritten in preset['numberformat'] 
-            'numberformat'=> [',', '.'], // dec_point, thousands_sep 
+                'diez', 'once', 'doce', 'minusword'=>'menos', 'langname'=>'español', 
+                // std number format for this language
+                'numberformat'=> [',', '.'], // dec_point, thousands_sep 
         ],
     );
 
-    // local number formats that differ from the above language array
+    // local sub number formats that differ from the above language array
     // can be accessed by using the extended language code, e.g. "en-SI"
+    // if you need yet another number format you can individually specify it in the __constructor via: 
+    // [ 'lang'=>'en', 'numberformat'=> ["'", '.'] ] 
     // local number format: https://en.wikipedia.org/wiki/Decimal_separator#Examples_of_use
     var $numformat=array(
         // type => [ dec_point, thousands_sep ]
@@ -111,9 +113,9 @@ class bnformat {
         // overwrite the class presets (if wanted), e.g. $presets = [ 'lang'=>'en', 'numberformat'=> ['.', ' '], 'acc'=>4 ]
         $numformat=false;
         if (is_array($presets)) {
-            if (isset($presets['lang'])) { 
+            if (isset($presets['lang']) and (strpos($presets['lang'], '-')!==false)) { 
+                if (array_key_exists($presets['lang'], $this->numformat)) $numformat=$this->numformat[$presets['lang']];
                 $lgar=explode('-', $presets['lang']);
-                if (isset($lgar[1]) and !empty($lgar[1]) and isset($this->numformat[$presets['lang']])) $numformat=$this->numformat[$presets['lang']];
                 $presets['lang']=$lgar[0]; // only take first part of 'lang', e.g. "en" instead "en-SI" 
             }
             foreach ($presets as $k0=>$v0) $this->presets[$k0] = $v0; 
