@@ -17,7 +17,7 @@ Not only in the physics department it is good practice to use the [SI format](ht
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // all options as in "__construct"
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes 
 echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
-echo $bn->sinum( 73672048 );  
+echo $bn->sinum( 73672048 ); // 73.7 M  
 ```
 
 The output looks like this (Deutsch, English):
