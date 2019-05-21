@@ -39,7 +39,7 @@ The output looks like this (Deutsch, English):
 
 ## 1.1. sinum() – statistical SI numbers ##
 
-If you want you may replace the accuracy with an error value:
+If you want you may replace the accuracy with an error value for a tolerance or its statistical margin of error:
 
 ```php
 echo $bn->sinum( 845.25110798201, 'g', ['err'=>0.93916789775779] ); // use error instead of accuracy
