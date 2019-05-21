@@ -23,9 +23,9 @@ echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits
 The output looks like this (Deutsch, English):
 
 ```html
-420 k  (= 419532 korrekt gerundet)
+420 k  (= 419532) // korrekt gerundet
 73,7 M  (= 73672048)
-98,4 µs  (= 9.8437291615846E-5 Sekunde, deutsches Format)
+98,4 µs  (= 9.8437291615846E-5) //  Sekunde, deutsches Format
 695 KiB  (= 711372 Byte, mit Binärprefix)
 3,7 km  (= 3657.3480260881 Meter, Genauigkeit: 2 Stellen)
 ```
