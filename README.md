@@ -11,7 +11,7 @@ $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German
 
 ## 1. sinum() – SI numbers ##
 
-Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (large or small in particular: n, µ, m, k, M, G, ...). This ensures easy readability and only produces an output as precise as necessary (usually 3 digits are the sweet spot as the preset precision (which outputs numbers like 5.28 or 12.4 or 792). 
+Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (large or small in particular: n, µ, m, k, M, G, ...). This ensures easy readability and only produces an output as precise as necessary (usually 3 digits are the sweet spot as the preset precision (which outputs numbers like 1.79 or 41.2  or 569). 
 
 ```php
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // all options as in "__construct"
