@@ -37,6 +37,22 @@ The output looks like this (Deutsch, English):
 73.7 M   = 73672048
 ```
 
+If you want you may replace the accuracy with an error value:
+
+```php
+echo $bn->sinum( 845.25110798201, 'g', ['err'=>0.93916789775779] ); // use error instead of accuracy
+```
+
+The output looks like this (Deutsch, English):
+
+```html
+845,3 ± 0,9 g  (= 845.25110798201 ± 0.93916789775779 g)
+58,97 ± 0,05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s)
+```
+```html
+845.3 ± 0.9 g  (= 845.25110798201 ± 0.93916789775779 g)
+58.97 ± 0.05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s)
+```
 
 ## 2.1. tnum() – text numbers ##
 
