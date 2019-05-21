@@ -50,7 +50,7 @@ echo "<p><br/><b>Sie können auch einen statistischen Fehler angeben (anstelle d
 
 $bnW = new bnformat\bnformat( ['lang'=>'de-WI'] ); 
 
-$val=mt_rand()/mt_getrandmax()*2000; $u='g'; $err=$val/900; 
+$val=mt_rand()/mt_getrandmax()*2; $u='g'; $err=$val/900; 
 echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
 
 $val=mt_rand()/mt_getrandmax()/10000000; $u='s'; $err=$val/1200;  
