@@ -37,6 +37,8 @@ The output looks like this (Deutsch, English):
 73.7 M   = 73672048
 ```
 
+## 1.1. sinum() – statistical SI numbers ##
+
 If you want you may replace the accuracy with an error value:
 
 ```php
