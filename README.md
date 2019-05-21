@@ -4,7 +4,7 @@
 
 *php-beautiful-numbers* is a rather small but useful class (< 15 kB with annotations). It handles numbers in a way that the output are pretty, easy human readable numbers. 
 
-When initialising you specify at least the tongue you want to use it in, and maybe further options like accuracy etc. (see quick manual inside class file).  
+When initialising you specify at least the tongue you want to use it in, and maybe further options like accuracy (see quick manual inside class file).  
 
 ```php
 $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German 
