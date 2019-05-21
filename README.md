@@ -15,7 +15,7 @@ Not only in the physics department it is good practice to use the [SI format](ht
 
 ```php
 echo $bn->sinum( 73672048 ); // without unit (all options as in "__construct")
-echo $bn->sinum( 9.8437291615846E-5, 's' ); // with unit seconds
+echo $bn->sinum( 9.8437291615846E-5, 's' ); // with unit
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes 
 echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 ```
