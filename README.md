@@ -39,14 +39,14 @@ The output looks like this (Deutsch, English):
 
 ## 2.1. tnum() – text numbers ##
 
-In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts.  
+In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. (When you display large numbers this function automatically rounds to the given accuracy.) 
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
 echo "I see " . $bn->tnum( $val, ['trees', 'one tree'] ) . " on the hill."; // singular distinction
 ```
 
-When you display large numbers this function automatically rounds to the given accuracy (Deutsch, English):
+The output looks like this (Deutsch, English):
 
 ```html
 Ich sehe neun Bäume auf dem Hügel.   (=9)
