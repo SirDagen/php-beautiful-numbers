@@ -37,7 +37,7 @@ The output looks like this (Deutsch, English):
 420 k   = 419532 [properly rounded]
 ```
 
-## 1.1. sinum() – statistical ##
+## 1.1. sinum() – statistical or error use ##
 
 If you want you may replace the accuracy with an error value (for a tolerance or its statistical margin of error):
 
