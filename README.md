@@ -2,7 +2,7 @@
 
 ## 0. __construct ##
 
-*php-beautiful-numbers* is a number format tool that creates pretty numbers in a human readable format. It also supports different languages and formats. Thus when you call the constructor, you can state the tongue you want to use it in as well as further options like accuracy (see quick manual inside class file).  
+*php-beautiful-numbers* is a number format tool that creates pretty numbers in a human readable format. It supports different languages and their formats. Thus when you call the constructor, you can state the tongue you want to use it in as well as further options like accuracy (see quick manual inside class file).  
 
 ```php
 $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German 
@@ -11,7 +11,7 @@ $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German
 
 ## 1. sinum() – SI numbers ##
 
-Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (large or small in particular). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot.  
+Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (large or small in particular: n, µ, m, k, M, G, ...). This ensures easy readability and only makes the output as precise as necessary (usually 3 digits are the sweet spot. Precision sets the number of digits not the decimal places. 
 
 ```php
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // all options as in "__construct"
