@@ -22,7 +22,7 @@ echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes
 echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 ```
 
-The output looks like this (Deutsch, English):
+Output looks like this (Deutsch, English):
 
 ```html
 420 k  (= 419532) // korrekt gerundet, 3 Stellen Genauigkeit
@@ -48,7 +48,7 @@ echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy
 echo "I see " . $bn->tnum( $val, ['trees', 'one tree'] ) . " on the hill."; // singular distinction
 ```
 
-The output looks like this (Deutsch, English):
+Output looks like this (Deutsch, English):
 
 ```html
 Ich sehe neun Bäume auf dem Hügel.   (=9)
@@ -74,7 +74,7 @@ echo $bn->tnum( $val, ['trees', 'a tree'], ['transform'=>'ucfirst'] ) . " " // s
 
 ```
 
-The output looks like this (Deutsch, English):
+Output looks like this (Deutsch, English):
 
 ```html
 Ein Baum steht auf dem Marktplatz.   (automatische Großschreibung)
@@ -95,7 +95,7 @@ For statistical usage you may replace the accuracy of sinum() with an error valu
 echo $bn->sinum( 845.25110798201, 'g', ['err'=>0.93916789775779] ); // use error instead of accuracy
 ```
 
-The output looks like this (Deutsch, English):
+Output looks like this (Deutsch, English):
 
 ```html
 845,3 ± 0,9 g  (= 845.25110798201 ± 0.93916789775779 g)
