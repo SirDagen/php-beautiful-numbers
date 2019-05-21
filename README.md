@@ -85,7 +85,7 @@ Two trees stand in the market square.
 15 trees stand in the market square.
 ``` 
 
-## 3. sinum() – statistical or error use ##
+## 3. sinum() – statistical use ##
 
 If you want you may replace the accuracy with an error value (for a tolerance or its statistical margin of error):
 
