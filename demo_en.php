@@ -46,6 +46,14 @@ echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>";
 $val=round(mt_rand()/mt_getrandmax()*80000000000+1000000000);  
 echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>"; 
 
+echo "<p><br/><b>You may also specify a statistical error (instead of an accuracy):</b></p>";
+
+$val=mt_rand()/mt_getrandmax()*2000; $u='g'; $err=$val/900; 
+echo "<p>".$bn->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
+
+$val=mt_rand()/mt_getrandmax()/10000000; $u='s'; $err=$val/1200; 
+echo "<p>".$bn->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
+
 
 // tnum()
 
