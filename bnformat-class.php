@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.20
+ * Version      1.0.21
  * @author      Gordon Axmann
  */
 
@@ -158,21 +158,30 @@ class bnformat {
         // https://en.wikipedia.org/wiki/International_System_of_Units
         $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
         $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (= decimal digits) - preset = 3
+        $t='err'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // use (err)or value instead of (acc)uracy
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
         // $pow=floor(log($val, $base)); $val/=pow($base, $pow); // dont know what way is faster in average
         $pow=0;
         if (!empty($val)) {
-            while (abs($val)<1) { $val*=$base; $pow--; }
-            while (abs($val)>$base) { $val/=$base; $pow++; }
+            while (abs($val)<1) { $val*=$base; $err*=$base; $pow--; }
+            while (abs($val)>1000) { $val/=$base; $err/=$base; $pow++; } // 0,984 MiB is easier to read than 1.010 KiB  
+            if (!empty($err)) while (abs($err)<0.0095) { $val*=$base; $err*=$base; $pow--; } // this(!) order of whiles(!)
         }
         $acc-=strlen(floor(abs($val))); //if ($acc<0) $acc=0; // only positive values supported right now
+        if (floor(abs($val))==0) $acc++; // add a digit if integer portion is zero (e.g. 0.984 MiB)
         $prefix=$this->siprefix[$pow][$ptype];
         if (empty($unit) and empty($prefix)) $sp='';
         else {
             if ($tx) $sp=' '; else $sp='&#8239;'; // = &thinsp;
         }
-        $rt=$this->out_val($val, $acc, $md).$sp.$prefix.$unit;
+        if (empty($err)) $rt=$this->out_val($val, $acc, $md).$sp.$prefix.$unit;
+        else {
+            $lg=log(abs($err), 10); $frac=fmod($lg, 1);
+            $acc=-floor($lg); 
+            if ($frac<0 && $frac>-0.02227639471121) $acc--; // dont display error = 1.0 (substract 1 digit of accuracy, if e.g. 0.99827199496456)
+            $rt=$this->out_val($val, $acc, $md).$sp.'±'.$sp.$this->out_val($err, $acc, $md).$sp.$prefix.$unit;
+        }
         return $rt;
     }
 
