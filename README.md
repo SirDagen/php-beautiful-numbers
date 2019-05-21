@@ -76,12 +76,12 @@ echo $bn->tnum( $val, ['trees', 'a tree'], ['transform'=>'ucfirst'] ) . " " // s
 The output looks like this (Deutsch, English):
 
 ```html
-Ein Baum steht auf dem Marktplatz.   (=1 automatische Großschreibung)
+Ein Baum steht auf dem Marktplatz.   (automatische Großschreibung der Zahl)
 Zwei Bäume stehen auf dem Marktplatz.
 15 Bäume stehen auf dem Marktplatz.
 ```
 ```html
-A tree stands in the market square.   (=1 automatic upper case)
+A tree stands in the market square.   (automatic upper case of the number)
 Two trees stand in the market square.
 15 trees stand in the market square.
 ``` 
