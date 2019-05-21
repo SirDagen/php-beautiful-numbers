@@ -64,7 +64,7 @@ I see 120,000 trees on the hill.   (=122823) [accuracy: 2 digits]
 
 ## 2.2. tsyn() – text syntax ##
 
-If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the correlated verb (e.g. they "stand" vs. it "stands"). 
+If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the correlated verb (e.g. "stand" vs. "stands"). 
 
 ```php
 echo $bn->tnum( $val, ['trees', 'a tree'], ['transform'=>'ucfirst'] ) . " " // start uppercase  
