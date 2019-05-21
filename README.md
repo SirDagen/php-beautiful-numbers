@@ -16,7 +16,7 @@ $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German
 Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (in particular very large or small numbers). This ensures easy readability (thanks to the SI prefixes n, µ, m, k, M, G, ...) and only produces an output as precise as necessary (usually 3 digits are the sweet spot, meaning the total number of significant digits). 
 
 ```php
-echo $bn->sinum( 419532 ); // no unit, accuracy = 3 digits 
+echo $bn->sinum( 419532 ); // no unit, accuracy as in preset
 echo $bn->sinum( 73672048 );
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // with unit
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes 
