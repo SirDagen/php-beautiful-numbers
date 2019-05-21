@@ -106,7 +106,9 @@ class bnformat {
         // type => [ dec_point, thousands_sep ]
         'en-SI'=> ['.', ' '], // English-SI style (official English-Canada) 
         'en-MT'=> ['·', ' '], // English-Malta
+        'en-SC'=> ['.', ''], // English-scientific 
         'de-LI'=> ['.', "'"], // Deutsch-Liechtenstein  
+        'de-WI'=> [',', ''], // Deutsch-Wissenschaftlich 
     );
     
     function __construct($presets=false) { // $presets=array() -- INIT
