@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.21
+ * Version      1.0.22
  * @author      Gordon Axmann
  */
 
@@ -179,7 +179,7 @@ class bnformat {
         }
         if (empty($err)) $rt=$this->out_val($val, $acc, $md).$sp.$prefix.$unit;
         else {
-            $lg=log(abs($err), 10); $frac=fmod($lg, 1);
+            $lg=log(abs($err), 10); $frac=($lg<0) ? $lg-ceil($lg) : $lg-floor($lg); // $frac=fmod($lg, 1); is a little slower
             $acc=-floor($lg); 
             if ($frac<0 && $frac>-0.02227639471121) $acc--; // dont display error = 1.0 (substract 1 digit of accuracy, if e.g. 0.99827199496456)
             $rt=$this->out_val($val, $acc, $md).$sp.'±'.$sp.$this->out_val($err, $acc, $md).$sp.$prefix.$unit;
