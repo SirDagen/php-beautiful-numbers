@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## 1.0.22 - 2019-05-22
-- Changed speed improvement in sinum() 
+- Changed: Speed improvement in sinum() 
 
 ## 1.0.21 - 2019-05-21
 - Added error option 'err' to sinum() which replaces 'acc' if wanted: ['err'=>0.02]
