@@ -90,7 +90,7 @@ Two trees stand in the market square.
 
 ## 3. sinum() – statistical use ##
 
-For statistical usage you may replace the accuracy of sinum() with an error value (for a tolerance or its statistical margin of error):
+For statistical usage you may replace the accuracy of sinum() with an error value (for a statistical margin of error or a tolerance):
 
 ```php
 echo $bn->sinum( 845.25110798201, 'g', ['err'=>0.93916789775779] ); // use error instead of accuracy
