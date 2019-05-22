@@ -93,7 +93,7 @@ Two trees stand in the market square.
 For statistical usage you may want to use sinum() with a margin of error (or a tolerance) instead of an accuracy:
 
 ```php
-echo $bn->sinum( 845.25110798201, 'g', ['err'=>0.93916789775779] ); // error instead of accuracy
+echo $bn->sinum( 1.7781990197386, 'g', ['err'=>0.0019757766885984] ); // error instead of accuracy
 ```
 
 Output looks like this (Deutsch, English):
