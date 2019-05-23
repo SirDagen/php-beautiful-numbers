@@ -15,7 +15,7 @@ namespace bnformat;
 
 /*
  * Name         php-beautiful-numbers class (number format functions)
- * Version      1.0.22
+ * Version      1.0.23
  * @author      Gordon Axmann
  */
 
@@ -43,7 +43,12 @@ class bnformat {
     */
 
     // all presets can be overwriten when using the constructor // $bn = new bnformat\bnformat([ 'lang'=>'en' ); 
-    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'numberformat'=> [',', '.'] ]; 
+    var $presets=['lang'=>'de', 'txt'=>false, 'acc'=>3, 'over'=>true, 'numberformat'=> [',', '.'] ]; 
+    // (lang)uage - language code: de, en, fr, de-WI, ... 
+    // (txt) - Text(=true) or HTML(=false) 
+    // (acc)uracy - significant figures https://en.wikipedia.org/wiki/Significant_figures
+    // (over)line - overline ambiguous significant zero in HTML
+    // (numberformat) - set number format (usually this gets set automatically by choosing the correct language code)
 
     // SI and binary prefixes (binary prefixes below 0 make no sense '?')
     // https://en.wikipedia.org/wiki/International_System_of_Units
@@ -138,9 +143,10 @@ class bnformat {
     function out_val($val, $pdp=0, $md=[]) { // post decimal places (99 = all)
         // outputs numbers in local number format (with stated decimal places) 
         // it is a copy of number_format but with better rounding
-        $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
+        $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets[$t]; // !dont use HTML entities in output (e.g. &ndash;)
+        $t='over'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets[$t]; 
         if ($val===false) {
-            if ($tx) return '-';
+            if ($txt) return '-';
             return '&ndash;';
         }
         if ($pdp==99) {
@@ -151,16 +157,27 @@ class bnformat {
             $val=round($val, $pdp); 
             // $base=pow(10, -(int)$pdp); $val=round($val/$base)*$base; // older version 
         }
-        return number_format($val, $pdp, $this->presets['numberformat'][0], $this->presets['numberformat'][1]); 
+        $rt=number_format($val, $pdp, $this->presets['numberformat'][0], $this->presets['numberformat'][1]); 
+        // if a ambiguous significant zero exists, mark it in HTML
+        // https://en.wikipedia.org/wiki/Significant_figures#Identifying_significant_figures
+        if ($over and !$txt and ($pdp<=0)) {
+            $i=strlen($rt)-1; $p=0;
+            while ($p>$pdp) { 
+                if (is_numeric(substr($rt, $i, 1))) $p--;
+                $i--; 
+            } 
+            if (substr($rt, $i, 1)=='0') $rt=substr($rt, 0, $i)."<span style='text-decoration:overline;'>0</span>".substr($rt, $i+1); // &#773; is ugly
+        }
+        return $rt;
     }
  
 
     function sinum($val, $unit='', $md=[]) { // SI number output
         // outs values with SI: "3240g" -> "3.24 kg"
         // https://en.wikipedia.org/wiki/International_System_of_Units
-        $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['txt']; // !dont use HTML entities in output (e.g. &ndash;)
-        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['acc']; // accuracy (= decimal digits) - preset = 3
-        $t='err'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // use (err)or value instead of (acc)uracy
+        $t='txt'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets[$t]; // !dont use HTML entities in output (e.g. &ndash;)
+        $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets[$t]; // accuracy (= decimal digits) - preset = 3
+        $t='err'; if (isset($md[$t])) { $$t=$md[$t]; if (!isset($md['over'])) $md['over']=false; } else $$t=0; // use (err)or value instead of (acc)uracy
         $t='bin'; if (isset($md[$t]) and !empty($md[$t])) $$t=$md[$t]; else $$t=false; // use IEC binary (1024) instead of SI (1000)
         if ($bin===true) { $base=1024; $ptype=1; } else { $base=1000; $ptype=0; }
         // $pow=floor(log($val, $base)); $val/=pow($base, $pow); // dont know what way is faster in average
@@ -175,14 +192,16 @@ class bnformat {
         $prefix=$this->siprefix[$pow][$ptype];
         if (empty($unit) and empty($prefix)) $sp='';
         else {
-            if ($tx) $sp=' '; else $sp='&#8239;'; // = &thinsp;
+            if ($txt) $sp=' '; else $sp='&#8239;'; // = &thinsp;
         }
         if (empty($err)) $rt=$this->out_val($val, $acc, $md).$sp.$prefix.$unit;
         else {
             $lg=log(abs($err), 10); $frac=($lg<0) ? $lg-ceil($lg) : $lg-floor($lg); // $frac=fmod($lg, 1); is a little slower
             $acc=-floor($lg); 
             if ($frac<0 && $frac>-0.02227639471121) $acc--; // dont display error = 1.0 (substract 1 digit of accuracy, if e.g. 0.99827199496456)
-            $rt=$this->out_val($val, $acc, $md).$sp.'±'.$sp.$this->out_val($err, $acc, $md).$sp.$prefix.$unit;
+            $rt=$this->out_val($val, $acc, $md).$sp.'±'.$sp;
+            $t='over'; $md[$t]=$this->presets[$t]; // sets 'over' to presets
+            $rt.=$this->out_val($err, $acc, $md).$sp.$prefix.$unit; 
         }
         return $rt;
     }
@@ -207,7 +226,7 @@ class bnformat {
         if (is_array($syntax) and !array_key_exists(0, $syntax)) echo "***?ERROR-2 tnum()*** ";
         $t='acc'; if (isset($md[$t])) $$t=$md[$t]; else $$t=2; // accuracy (= decimal digits) 
         $t='pdp'; if (isset($md[$t])) $$t=$md[$t]; else $$t=0; // post decimal places (99 = all) 
-        $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets['lang']; // choose language
+        $t='lang'; if (isset($md[$t])) $$t=$md[$t]; else $$t=$this->presets[$t]; // choose language
         $t='transform'; if (!isset($md[$t])) $$t=false; else $$t=$md[$t]; // apply (ucfirst OR toupper) to written-out number
         $base=1000; 
         // >12 or fractional  
