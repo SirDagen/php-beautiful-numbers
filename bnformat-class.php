@@ -81,22 +81,22 @@ class bnformat {
     // [ 'lang'=>'de-CH' ] // set language to de, language format to the subset "de-CH"
     var $numwords=array(
         'de'=> [ 'null', 'ein/e/m', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
-                'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 
+                'zehn', 'elf', 'zwölf', 'minusword'=>'minus', 'langname'=>'Deutsch', 'circa'=>'ca.',
                 // std number format for this language
                 'numberformat'=> [',', '.'], // dec_point, thousands_sep 
             ],
         'en'=> [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
-                'ten', 'eleven', 'twelve', 'minusword'=>'minus', 'langname'=>'English', 
+                'ten', 'eleven', 'twelve', 'minusword'=>'minus', 'langname'=>'English', 'circa'=>'ca.',
                 // std number format for this language
                 'numberformat'=> ['.', ','], // dec_point, thousands_sep 
             ],
         'fr'=> [ 'zéro', 'un/une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf',
-                'dix', 'onze', 'douze', 'minusword'=>'moins', 'langname'=>'français', 
+                'dix', 'onze', 'douze', 'minusword'=>'moins', 'langname'=>'français', 'circa'=>'environ',
                 // std number format for this language
                 'numberformat'=> [',', ' '], // dec_point, thousands_sep 
             ],
         'es'=> [ 'cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve',
-                'diez', 'once', 'doce', 'minusword'=>'menos', 'langname'=>'español', 
+                'diez', 'once', 'doce', 'minusword'=>'menos', 'langname'=>'español', 'circa'=>'aprox.', 
                 // std number format for this language
                 'numberformat'=> [',', '.'], // dec_point, thousands_sep 
         ],
@@ -158,7 +158,7 @@ class bnformat {
             // $base=pow(10, -(int)$pdp); $val=round($val/$base)*$base; // older version 
         }
         $rt=number_format($val, $pdp, $this->presets['numberformat'][0], $this->presets['numberformat'][1]); 
-        // if a ambiguous significant zero exists, mark it in HTML
+        // if a ambiguous significant zero exists, mark it in HTML with overline
         // https://en.wikipedia.org/wiki/Significant_figures#Identifying_significant_figures
         if ($over and !$txt and ($pdp<=0)) {
             $i=strlen($rt)-1; $p=0;
