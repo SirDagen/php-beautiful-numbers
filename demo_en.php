@@ -15,7 +15,7 @@ echo "<br/><h1>php-beautiful-numbers <b>(format = ".$bn->langname().")</b><br/><
 
 // sinum()
 
-echo "<br/><h3><pre>A. sinum() &ndash; Outputs numbers in easy readable SI format</pre></h3>";
+echo "<br/><h3><pre>1. sinum() &ndash; Outputs numbers in easy readable SI format</pre></h3>";
 
 $val=mt_rand()/mt_getrandmax()/5; $u='s'; 
 echo "<p>".$bn->sinum($val, $u)." &nbsp;(= {$val} {$u})</p>"; 
@@ -46,20 +46,10 @@ echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>";
 $val=round(mt_rand()/mt_getrandmax()*80000000000+1000000000);  
 echo "<p>".$bn->sinum($val)." &nbsp;(= {$val})</p>"; 
 
-echo "<p><br/><b>You may also specify a statistical error (instead of accuracy)</b></p>";
-
-$bnW = new bnformat\bnformat( ['lang'=>'en-SC'] ); 
-
-$val=mt_rand()/mt_getrandmax()*2; $u='g'; $err=$val/900; 
-echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
-
-$val=mt_rand()/mt_getrandmax()/10000000; $u='s'; $err=$val/1200; 
-echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
-
 
 // tnum()
 
-echo "<br/><h3><pre>B. tnum() &ndash; Outputs numbers inside running text (0..12 will be written-out) - text number</pre></h3>";
+echo "<br/><h3><pre>2.1. tnum() &ndash; Outputs numbers inside running text (0..12 will be written-out) - text number</pre></h3>";
 
 // outputs 0..12 written-out, all others as digits (as common practice in publications)
 echo "<p>"; 
@@ -100,7 +90,7 @@ echo "</p>";
 
 // tsyn() - additionally use of 
 
-echo "<br/><h3><pre>C. tsyn() &ndash; Distinguishes between singular und plural - text syntax</pre></h3>";
+echo "<br/><h3><pre>2.2. tsyn() &ndash; Distinguishes between singular und plural - text syntax</pre></h3>";
 
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
@@ -109,6 +99,21 @@ for ($i=0;$i<3;$i++) {
 }
 echo "</p>"; 
 
+
+// sinum() - statistical usage
+
+echo "<br/><h3><pre>3. sinum() &ndash; statistical usage</pre></h3>";
+
+$bnW = new bnformat\bnformat( ['lang'=>'en-SC'] ); 
+
+$val=mt_rand()/mt_getrandmax()*2; $u='g'; $err=$val/900; 
+echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
+
+$val=mt_rand()/mt_getrandmax()/10000000; $u='s'; $err=$val/1200; 
+echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
+
+$val=mt_rand()/mt_getrandmax()/100; $u='m'; $err=$val/800;  
+echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
 
 
 echo "<br/>&nbsp;<br/>";
