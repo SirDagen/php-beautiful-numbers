@@ -43,7 +43,7 @@ Output looks like this (Deutsch, English):
 If you use the HTML mode the space before the unit or prefix get replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also any ambiguous [significant zero] automatically gets overlined for clarity (if not disabled):
 
 ```html
-43&#773;00 µs  (= 0.00430168547867881 s) // accuracy 3 digits
+43◌̅00 µs  (= 0.00430168547867881 s) // accuracy 3 digits
 ```
 
 ## 2.1. tnum() – text numbers ##
