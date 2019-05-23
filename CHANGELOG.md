@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.0.23 - 2019-05-24
 - Added: sinum() Overline an ambiguous significant zero in HTML
+- Added "circa" to language list
 
 ## 1.0.22 - 2019-05-22
 - Changed: Speed improvement in sinum() 
