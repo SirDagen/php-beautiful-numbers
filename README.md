@@ -40,7 +40,7 @@ Output looks like this (Deutsch, English):
 3.7 km  (= 3657.3480260881 meter) // accuracy 2 digits
 ```
 
-If you use the HTML mode the space before the unit or prefix get replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also any ambiguous [significant zero] automatically gets overlined for clarity (if not disabled):
+If you use the HTML mode the space before the unit or prefix get replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also any ambiguous [significant zero] automatically gets overlined for clarity (if not disabled): 43◌̅00 µs
 
 ```html
 43◌̅00 µs  (= 0.00430168547867881 s) // accuracy 3 digits
