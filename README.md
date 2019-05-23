@@ -40,6 +40,12 @@ Output looks like this (Deutsch, English):
 3.7 km  (= 3657.3480260881 meter) // accuracy 2 digits
 ```
 
+If you use the HTML mode the space before the unit or prefix get replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also any ambiguous [significant zero] automatically gets overlined for clarity (if not disabled):
+
+```html
+43&#773;00 µs  (= 0.00430168547867881 s) // accuracy 3 digits
+```
+
 ## 2.1. tnum() – text numbers ##
 
 In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. (Additionally this function automatically rounds to a given accuracy when you want to display large numbers.) 
