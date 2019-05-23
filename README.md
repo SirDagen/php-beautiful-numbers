@@ -17,7 +17,7 @@ Not only in the physics department it is good practice to use the [SI format](ht
 
 ```php
 echo $bn->sinum( 419532 ); // simple number without unit
-echo $bn->sinum( 73672048.23 );
+echo $bn->sinum( 73672048.352987 );
 echo $bn->sinum( 9.8437291615846E-5, 's' ); // with unit
 echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes 
 echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
@@ -27,14 +27,14 @@ Output looks like this (Deutsch, English):
 
 ```html
 420 k  (= 419532) // korrekt gerundet, 3 Stellen Genauigkeit
-73,7 M  (= 73672048.23) // dito
+73,7 M  (= 73672048.352987) // dito
 98,4 µs  (= 9.8437291615846E-5 Sekunde) // mit Einheit und Prefix
 695 KiB  (= 711372 Byte) // mit Binärprefix
 3,7 km  (= 3657.3480260881 Meter) // Genauigkeit 2 Stellen
 ```
 ```html
 420 k  (= 419532) // properly rounded, 3 digits accuracy
-73.7 M  (= 73672048) // same
+73.7 M  (= 73672048.352987) // same
 98.4 µs  (= 9.8437291615846E-5 second) // with unit and prefix
 695 KiB  (= 711372 byte) // using binary prefix
 3.7 km  (= 3657.3480260881 meter) // accuracy 2 digits
