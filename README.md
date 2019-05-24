@@ -33,7 +33,7 @@ Output looks like this (Deutsch, English):
 3,7 km  (= 3657.3480260881 Meter) // Genauigkeit 2 Stellen
 ```
 ```html
-420 k  (= 419532) // properly rounded, 3 digits accuracy
+42̅0 k  (= 419532) // properly rounded, 3 digits accuracy
 73.7 M  (= 73672048.352987) // same
 98.4 µs  (= 9.8437291615846E-5 second) // with unit and prefix
 695 KiB  (= 711372 byte) // using binary prefix
