@@ -48,7 +48,7 @@ In newspapers and other running text it is common practice to note the numbers f
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
-echo "I see " . $bn->tnum( $val, ['trees', 'one tree'] ) . " on the hill."; // singular distinction
+echo "I see " . $bn->tnum( $val, ['trees', 'a tree'] ) . " on the hill."; // singular distinction
 ```
 
 Output looks like this (Deutsch, English):
@@ -60,7 +60,7 @@ Ich sehe 120.000 Bäume auf dem Hügel.   (=122823) [Genauigkeit: 2 Stellen]
 ``` 
 ```html
 I see nine trees on the hill.   (=9)
-I see one tree on the hill.   (=1)
+I see a tree on the hill.   (=1)
 I see 120,000 trees on the hill.   (=122823) [accuracy: 2 digits]
 ```
 
@@ -71,7 +71,7 @@ I see 120,000 trees on the hill.   (=122823) [accuracy: 2 digits]
 If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the correlated verb (e.g. "stand" vs. "stands"). 
 
 ```php
-echo $bn->tnum( $val, ['trees', 'a tree'], ['transform'=>'ucfirst'] ) . " " // start uppercase  
+echo $bn->tnum( $val, ['trees', 'one tree'], ['transform'=>'ucfirst'] ) . " " // start uppercase  
     . $bn->tsyn( $val, ['stand', 'stands'] ) // corresponding syntax
     . " in the market square.";
 
@@ -85,7 +85,7 @@ Zwei Bäume stehen auf dem Marktplatz.
 15 Bäume stehen auf dem Marktplatz.
 ```
 ```html
-A tree stands in the market square.   (automatic upper case)
+One tree stands in the market square.   (automatic upper case)
 Two trees stand in the market square.
 15 trees stand in the market square.
 ``` 
