@@ -70,7 +70,7 @@ I see 120,000 trees on the hill.   (=122823) [accuracy: 2 digits]
 If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the correlated verb (e.g. "stand" vs. "stands"). 
 
 ```php
-echo $bn->tnum( $val, ['trees', 'one tree'], ['transform'=>'ucfirst'] ) // start uppercase  
+echo $bn->tnum( $val, ['trees', 'one tree'], ['transform'=>'ucfirst'] ) // uppercase first char  
     . " " . $bn->tsyn( $val, ['stand', 'stands'] ) // corresponding syntax
     . " in the market square.";
 
