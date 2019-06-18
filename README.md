@@ -39,7 +39,7 @@ Output looks like this (Deutsch, English):
 3.7 km  (= 3657.3480260881 meter) // accuracy 2 digits
 ```
 
-If you use HTML mode each space before the unit/prefix get replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also (if not disabled) any ambiguous [significant zero](https://en.wikipedia.org/wiki/Significant_figures#Identifying_significant_figures) automatically gets overlined to show the given precision.
+If you use HTML mode each space before the unit/prefix gets replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also (if not disabled) any ambiguous [significant zero](https://en.wikipedia.org/wiki/Significant_figures#Identifying_significant_figures) automatically gets overlined to show the given precision.
 
 ## 2.1. tnum() – text numbers ##
 
