@@ -43,7 +43,7 @@ If you use HTML mode each space before the unit/prefix gets replaced by a [thin 
 
 ## 2.1. tnum() – text numbers ##
 
-In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. (Additionally this function automatically rounds to a given accuracy when you want to display large numbers.) 
+In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. - Also this function automatically rounds to a given accuracy when you want to display large numbers. 
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
