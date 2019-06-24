@@ -94,12 +94,12 @@ echo $bn->tnum( $val, ['trees','one tree'], ['transform'=>'ucfirst'] ) // first 
 For statistical usage you may want to use sinum() with a margin of error (or a tolerance) instead of an accuracy:
 
 ```html
-1778 ± 2 mg  (= 1.7781990197386 ± 0.0019757766885984 g)
-58,97 ± 0,05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s)
+58,97 ± 0,05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s) // English format
+1778 ± 2 mg  (= 1.7781990197386 ± 0.0019757766885984 g) 
 ```
 ```html
+58.97 ± 0.05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s) // Deutsches Format
 1778 ± 2 mg  (= 1.7781990197386 ± 0.0019757766885984 g)
-58.97 ± 0.05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s)
 ```
 
 Code looks like this:
