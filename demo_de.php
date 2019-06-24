@@ -62,7 +62,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(0, 3); 
-    echo $bn->tnum($val, ['Bäume', 'einen Baum'], ['transform'=>'ucfirst'])." sehe ich am Wegesrand stehen.<br/>"; 
+    echo $bn->tnum($val, ['Bäume','einen Baum'], ['transform'=>'ucfirst'])." sehe ich am Wegesrand stehen.<br/>"; 
 }
 echo "</p>"; 
 
@@ -71,7 +71,7 @@ echo "<p><b>Und rundet auf angegebene Genauigkeit (2 Stellen):</b></p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(100, 2000000); 
-    echo "ca. ".$bn->tnum($val, ['Haushalte', 'ein Haushalt'])." &nbsp;(= {$val} Haushalte)<br/>"; 
+    echo "ca. ".$bn->tnum($val, ['Haushalte','ein Haushalt'])." &nbsp;(= {$val} Haushalte)<br/>"; 
 }
 echo "</p>"; 
 
@@ -79,7 +79,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 2000000)/90000000;  
-    echo "ca. ".$bn->tnum($val, ['Haushalte', 'ein Haushalt'])." &nbsp;(= {$val} Haushalte)<br/>"; 
+    echo "ca. ".$bn->tnum($val, ['Haushalte','ein Haushalt'])." &nbsp;(= {$val} Haushalte)<br/>"; 
 }
 echo "</p>"; 
 */
@@ -92,7 +92,7 @@ echo "<br/><h3><pre>2.2. tsyn() &ndash; Unterscheidet zwischen Singular und Plur
 echo "<p>"; 
 for ($i=0;$i<3;$i++) { 
     $val=mt_rand(1, 3); 
-    echo "Es ".$bn->tsyn($val, ['stehen', 'steht'])." ".$bn->tnum($val, ['Bäume', 'ein Baum'])." auf dem Marktplatz.<br/>"; 
+    echo "Es ".$bn->tsyn($val, ['stehen','steht'])." ".$bn->tnum($val, ['Bäume','ein Baum'])." auf dem Marktplatz.<br/>"; 
 }
 echo "</p>"; 
 
