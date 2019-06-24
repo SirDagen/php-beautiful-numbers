@@ -60,7 +60,7 @@ Code looks like this:
 
 ```php
 echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy 
-echo "I see " . $bn->tnum( $val, ['trees', 'a tree'] ) . " on the hill."; // singular distinction
+echo "I see " . $bn->tnum( $val, ['trees','a tree'] ) . " on the hill."; // singular distinction
 ```
 
 *Ann.: The language element is an array so that it is easier to use the class in multi-language surroundings, e.g. tnum($val, $LANG['de']['termin-AKK']) for the German accusative form ["Termine", "einen Termin"] and tnum($val, $LANG['de']['termin-NOM']) for the nominative ["Termine", "ein Termin"].*
@@ -83,8 +83,8 @@ Two trees stand in the market square.
 Code looks like this:
 
 ```php
-echo $bn->tnum( $val, ['trees', 'one tree'], ['transform'=>'ucfirst'] ) // first char to uppercase  
-    . " " . $bn->tsyn( $val, ['stand', 'stands'] ) // choose corresponding syntax
+echo $bn->tnum( $val, ['trees','one tree'], ['transform'=>'ucfirst'] ) // first char to uppercase  
+    . " " . $bn->tsyn( $val, ['stand','stands'] ) // choose corresponding syntax
     . " in the market square.";
 
 ```
