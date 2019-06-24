@@ -101,7 +101,7 @@ echo "</p>";
 
 echo "<br/><h3><pre>3. sinum() &ndash; Statistische Nutzung</pre></h3>";
 
-$bnW = new bnformat\bnformat( ['lang'=>'de-WI'] ); 
+$bnW = new bnformat\bnformat( ['lang'=>'de-WI'] ); // deutsches wissenschaftliches Format
 
 $val=mt_rand()/mt_getrandmax()*2; $u='g'; $err=$val/900; 
 echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
