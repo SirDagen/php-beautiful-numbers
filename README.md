@@ -7,7 +7,7 @@
 When initialising you specify at least the tongue you want to use it in, and maybe further options like accuracy (see quick manual inside class file).  
 
 ```php
-$bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German 
+$bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German (number format and language) 
 ```
 
 
