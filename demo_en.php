@@ -65,7 +65,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(0, 3); 
-    echo $bn->tnum($val, ['trees', 'one tree'], ['transform'=>'ucfirst'])." I see standing at the wayside.<br/>"; 
+    echo $bn->tnum($val, ['trees','one tree'], ['transform'=>'ucfirst'])." I see standing at the wayside.<br/>"; 
 }
 echo "</p>"; 
 
@@ -74,7 +74,7 @@ echo "<p><b>Also rounds big numbers to given accuracy (2 digits):</b></p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(100, 2000000); 
-    echo "ca. ".$bn->tnum($val, ['homes', 'one home'])." &nbsp;(= {$val} homes)<br/>"; 
+    echo "ca. ".$bn->tnum($val, ['homes','one home'])." &nbsp;(= {$val} homes)<br/>"; 
 }
 echo "</p>"; 
 
@@ -82,7 +82,7 @@ echo "</p>";
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 2000000)/90000000;  
-    echo "ca. ".$bn->tnum($val, ['homes', 'one home'])." &nbsp;(= {$val} homes)<br/>"; 
+    echo "ca. ".$bn->tnum($val, ['homes','one home'])." &nbsp;(= {$val} homes)<br/>"; 
 }
 echo "</p>"; 
 */
@@ -95,7 +95,7 @@ echo "<br/><h3><pre>2.2. tsyn() &ndash; Distinguishes between singular und plura
 echo "<p>"; 
 for ($i=0;$i<3;$i++) {
     $val=mt_rand(1, 3); 
-    echo $bn->tsyn($val, ['Do', 'Does'])." ".$bn->tnum($val, ['trees', 'a tree'])." stand in the market square?<br/>"; 
+    echo $bn->tsyn($val, ['Do','Does'])." ".$bn->tnum($val, ['trees','a tree'])." stand in the market square?<br/>"; 
 }
 echo "</p>"; 
 
@@ -104,7 +104,7 @@ echo "</p>";
 
 echo "<br/><h3><pre>3. sinum() &ndash; statistical usage</pre></h3>";
 
-$bnW = new bnformat\bnformat( ['lang'=>'en-SC'] ); 
+$bnW = new bnformat\bnformat( ['lang'=>'en-SC'] ); // English scientific number format 
 
 $val=mt_rand()/mt_getrandmax()*2; $u='g'; $err=$val/900; 
 echo "<p>".$bnW->sinum($val, $u, ['err'=>$err])." &nbsp;(= {$val} ± {$err} {$u})</p>";
