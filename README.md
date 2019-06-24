@@ -84,7 +84,7 @@ Code looks like this:
 
 ```php
 echo $bn->tnum( $val, ['trees', 'one tree'], ['transform'=>'ucfirst'] ) // first char to uppercase  
-    . " " . $bn->tsyn( $val, ['stand', 'stands'] ) // corresponding syntax
+    . " " . $bn->tsyn( $val, ['stand', 'stands'] ) // choose corresponding syntax
     . " in the market square.";
 
 ```
