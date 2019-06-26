@@ -70,13 +70,13 @@ echo "I see " . $bn->tnum( $val, ['trees','a tree'] ) . " on the hill."; // sing
 If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the correlated verb (e.g. "stand" vs. "stands"). 
 
 ```html
-Ein Baum steht auf dem Marktplatz.   (automatische Großschreibung)
-Zwei Bäume stehen auf dem Marktplatz.
+Ein Baum steht auf dem Marktplatz.   (automatische Großschreibung am Satzanfang)
+Zwei Bäume stehen auf dem Marktplatz.   ("stehen")
 15 Bäume stehen auf dem Marktplatz.
 ```
 ```html
-One tree stands in the market square.   (automatic upper case)
-Two trees stand in the market square.
+One tree stands in the market square.   (automatic upper case at the start of record)
+Two trees stand in the market square.   ("stand")
 15 trees stand in the market square.
 ``` 
 
