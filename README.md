@@ -2,7 +2,7 @@
 
 ## 0. __construct ##
 
-*php-beautiful-numbers* is a rather small number format class (with annotations < 15 kB). It handles numbers in a way that it outputs pretty, easy human readable numbers. 
+*php-beautiful-numbers* is a number format class that is rather small (with annotations < 15 kB). It handles numbers in a way that it outputs pretty, easy human readable numbers. 
 
 When initialising you specify at least the tongue you want to use it in, and maybe further options like accuracy (see quick manual inside class file).  
 
