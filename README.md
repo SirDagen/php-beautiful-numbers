@@ -2,9 +2,9 @@
 
 ## 0. __construct ##
 
-*php-beautiful-numbers* is a number format class that is rather small (with annotations < 15 kB). It handles numbers in a way that it outputs pretty, easy human readable numbers. 
+*php-beautiful-numbers* is a number formatting class that is rather small (with annotations < 15 kB). It handles numbers in a way that produces neat, easily readable output.  
 
-When initialising you specify at least the tongue you want to use it in, and maybe further options like accuracy (see quick manual inside class file).  
+When initialising, you specify at least the language you want to use, and optionally further options such as accuracy (see quick manual inside the class file).   
 
 ```php
 $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German (number format and language) 
@@ -13,7 +13,7 @@ $bn = new bnformat\bnformat( ['lang'=>'de'] ); // set output to German (number f
 
 ## 1. sinum() – SI numbers ##
 
-Not only in the physics department it is good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) for writing down any number (in particular very large or small numbers). This ensures easy readability (thanks to the SI prefixes n, µ, m, k, M, G, ...) and only produces an output as precise as necessary (usually 3 digits are the sweet spot, meaning the total number of [significant figures](https://en.wikipedia.org/wiki/Significant_figures)). 
+Not only in physics is it good practice to use the [SI format](https://en.wikipedia.org/wiki/International_System_of_Units) when writing down numbers (especially very large or very small ones). This ensures easy readability (thanks to the SI prefixes n, µ, m, k, M, G, …) and produces output that is only as precise as necessary (usually 3 digits are the sweet spot, meaning the total number of [significant figures](https://en.wikipedia.org/wiki/Significant_figures)). 
 
 ```html
 420 k  (= 419532) // korrekt gerundet, 3 Stellen Genauigkeit
@@ -39,11 +39,11 @@ echo $bn->sinum( 711372, 'B', ['bin'=>true] ); // use binary prefixes
 echo $bn->sinum( 3657.3480260881, 'm', ['acc'=>2] ); // accuracy = 2 digits 
 ```
 
-If you use HTML mode each space before the unit/prefix gets replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also (if not disabled) any ambiguous [significant zero](https://en.wikipedia.org/wiki/Significant_figures#Identifying_significant_figures) automatically gets overlined to show the given precision.
+If you use HTML mode, each space before the unit/prefix is replaced by a [thin space](https://en.wikipedia.org/wiki/Thin_space). Also (if not disabled), any ambiguous [significant zero](https://en.wikipedia.org/wiki/Significant_figures#Identifying_significant_figures) automatically gets an overline to indicate the given precision.
 
 ## 2.1. tnum() – text numbers ##
 
-In newspapers and other running text it is common practice to note the numbers from 0 to 12 written-out; all other numbers are written as digits. This produces more beautiful and easier to read texts. - Also this function automatically rounds to a given accuracy when you want to display large numbers. 
+In newspapers and other continuous text, it is common practice to spell out numbers from 0 to 12; all higher numbers are written as digits. This results in more elegant and easier-to-read text. This function also automatically rounds large numbers to the given accuracy.  
 
 ```html
 Ich sehe neun Bäume auf dem Hügel.   (=9)
@@ -63,11 +63,11 @@ echo "I see " . $bn->tnum( $val ) . " trees on the hill."; // quick and easy
 echo "I see " . $bn->tnum( $val, ['trees','a tree'] ) . " on the hill."; // singular distinction
 ```
 
-*Ann.: The language element is an array so that it is easier to use the class in multi-language surroundings, e.g. tnum($val, $LANG['de']['termin-AKK']) for the German accusative form ["Termine", "einen Termin"] and tnum($val, $LANG['de']['termin-NOM']) for the nominative ["Termine", "ein Termin"].*
+*Note: The language element is an array so that it is easier to use the class in multi-language contexts — for example, tnum($val, $LANG['de']['termin-AKK']) for the German accusative form ["Termine", "einen Termin"], and tnum($val, $LANG['de']['termin-NOM']) for the nominative ["Termine", "ein Termin"].*
 
 ## 2.2. tsyn() – text syntax ##
 
-If you want the perfect use of numbers in running text, you might additionally need tsyn() to distinguish between singular and plural for the correlated verb (e.g. "stand" vs. "stands"). 
+For perfect grammar when using numbers in continuous text, you might also need tsyn() to distinguish between singular and plural in the related verb (e.g. "stand" vs. "stands").  
 
 ```html
 Ein Baum steht auf dem Marktplatz.   (automatische Großschreibung am Satzanfang)
@@ -75,7 +75,7 @@ Zwei Bäume stehen auf dem Marktplatz.   ("stehen")
 15 Bäume stehen auf dem Marktplatz.
 ```
 ```html
-One tree stands in the market square.   (automatic upper case at the start of record)
+One tree stands in the market square.   (automatic capitalisation at the start of the sentence)
 Two trees stand in the market square.   ("stand")
 15 trees stand in the market square.
 ``` 
@@ -91,7 +91,7 @@ echo $bn->tnum( $val, ['trees','one tree'], ['transform'=>'ucfirst'] ) // first 
 
 ## 3. sinum() – statistical usage ##
 
-For statistical usage you may want to use sinum() with a margin of error (or a tolerance) instead of an accuracy:
+For statistical use, you may want to apply sinum() with a margin of error (or tolerance) instead of an accuracy:
 
 ```html
 58,97 ± 0,05 ns  (= 5.8969191908356E-8 ± 4.9140993256964E-11 s) // Deutsches Format
